@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { LegalSource } from "../../domain/Provenance.js";
 import { StatuteKind, type Statute } from "../../domain/Statute.js";
+import type { LegalDocument } from "../../domain/LegalDocument.js";
+import { parseLexDania } from "./lexDania.js";
 
 const BASE_URL = "https://www.retsinformation.dk";
 const MAX_RESULTS = 10;
@@ -86,4 +88,26 @@ export const findStatutes = async (query: string): Promise<Statute[]> => {
   return documents
     .slice(0, MAX_RESULTS)
     .map((document) => toStatute(document, retrievedAt));
+};
+
+/** The text is the version consolidated at publication. Later changes are not applied to it. */
+export const readStatute = async (
+  identifier: string
+): Promise<LegalDocument> => {
+  const url = `${BASE_URL}/${identifier}`;
+  const response = await fetch(`${url}/xml`, {
+    headers: { accept: "application/xml" },
+  });
+  if (!response.ok) {
+    throw new Error(
+      `Retsinformation document ${identifier} failed with ${response.status}`
+    );
+  }
+
+  return parseLexDania(await response.text(), {
+    source: LegalSource.Retsinformation,
+    identifier,
+    url,
+    retrievedAt: new Date().toISOString(),
+  });
 };
