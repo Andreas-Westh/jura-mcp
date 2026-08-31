@@ -26,10 +26,9 @@ export interface Paragraph {
  */
 export interface Section {
   title: string;
-  /** How many titled sections contain this one. Use it to indent an outline. */
-  depth: number;
-  firstParagraph: string;
-  lastParagraph: string;
+  /** How many titled sections contain this one. Absent at the top level. */
+  depth?: number;
+  paragraphs: string;
 }
 
 export interface LegalDocument {

@@ -54,20 +54,21 @@ const DOCUMENT_SCHEMA = z.object({
   ministry: z.string(),
   status: z.enum(DocumentStatus),
   currentUntil: z.string().optional(),
+  warning: z.string().optional(),
   laterChanges: z.array(
     z.object({ announcedOn: z.string(), title: z.string() })
   ),
   sections: z.array(
     z.object({
       title: z.string(),
-      depth: z.number(),
-      firstParagraph: z.string(),
-      lastParagraph: z.string(),
+      depth: z.number().optional(),
+      paragraphs: z.string(),
     })
   ),
   paragraphs: z.array(
     z.object({ number: z.string(), heading: z.string(), text: z.string() })
   ),
+  omittedParagraphs: z.number().optional(),
   provenance: PROVENANCE_SCHEMA,
 });
 
@@ -101,7 +102,7 @@ const formatOutline = (document: LegalDocument): string =>
     "\nOutline — call again with the § numbers you need:",
     ...document.sections.map(
       (section) =>
-        `${"  ".repeat(section.depth + 1)}${section.title}  §§ ${section.firstParagraph}–${section.lastParagraph}`
+        `${"  ".repeat((section.depth ?? 0) + 1)}${section.title}  §§ ${section.paragraphs}`
     ),
   ]
     .filter((line) => line !== undefined)
@@ -140,7 +141,7 @@ const selectParagraphs = (
   };
 
   return selection.split(",").flatMap((part) => {
-    const [from, to] = part.split("-").map((bound) => bound.trim());
+    const [from, to] = part.split("..").map((bound) => bound.trim());
     return paragraphs.slice(indexOf(from!), indexOf(to ?? from!) + 1);
   });
 };
@@ -200,7 +201,9 @@ export const registerTools = (server: McpServer): void => {
           .max(100)
           .optional()
           .describe(
-            'Which \u00a7 to read. For example "36", "38-38c" or "1,9a". Leave it out to get the outline.'
+            'Which \u00a7 to read. For example "36", "38..38c" or "1,9a". ' +
+              "A range uses two dots, because a \u00a7 number can hold a hyphen. " +
+              "Leave it out to get the outline."
           ),
       }),
       outputSchema: DOCUMENT_SCHEMA,
@@ -208,10 +211,15 @@ export const registerTools = (server: McpServer): void => {
     },
     async ({ identifier, paragraphs }) => {
       const document = await readStatute(identifier);
+      const warning = warnAboutAge(document);
       if (!paragraphs) {
         return {
           content: [{ type: "text", text: formatOutline(document) }],
-          structuredContent: { ...document, paragraphs: [] },
+          structuredContent: {
+            ...document,
+            paragraphs: [],
+            ...(warning ? { warning } : {}),
+          },
         };
       }
 
@@ -230,7 +238,12 @@ export const registerTools = (server: McpServer): void => {
             text: `${formatOutline(document)}\n\n${formatParagraphs(shown)}${truncated}`,
           },
         ],
-        structuredContent: { ...document, paragraphs: shown },
+        structuredContent: {
+          ...document,
+          paragraphs: shown,
+          ...(warning ? { warning } : {}),
+          ...(omitted.length > 0 ? { omittedParagraphs: omitted.length } : {}),
+        },
       };
     }
   );
