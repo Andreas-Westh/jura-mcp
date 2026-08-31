@@ -122,11 +122,13 @@ const walk = (
     return { sections, paragraphs };
   }
 
+  const first = paragraphs[0]!.number;
+  const last = paragraphs[paragraphs.length - 1]!.number;
   const section: Section = {
     title,
-    depth,
-    firstParagraph: paragraphs[0]!.number,
-    lastParagraph: paragraphs[paragraphs.length - 1]!.number,
+    ...(depth > 0 ? { depth } : {}),
+    // ponytail: an en dash joins the range because a merged § number like `28-30` already holds a hyphen.
+    paragraphs: first === last ? first : `${first}–${last}`,
   };
   return { sections: [section, ...sections], paragraphs };
 };

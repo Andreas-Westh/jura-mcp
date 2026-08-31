@@ -60,9 +60,8 @@ const DOCUMENT_SCHEMA = z.object({
   sections: z.array(
     z.object({
       title: z.string(),
-      depth: z.number(),
-      firstParagraph: z.string(),
-      lastParagraph: z.string(),
+      depth: z.number().optional(),
+      paragraphs: z.string(),
     })
   ),
   paragraphs: z.array(
@@ -101,7 +100,7 @@ const formatOutline = (document: LegalDocument): string =>
     "\nOutline — call again with the § numbers you need:",
     ...document.sections.map(
       (section) =>
-        `${"  ".repeat(section.depth + 1)}${section.title}  §§ ${section.firstParagraph}–${section.lastParagraph}`
+        `${"  ".repeat((section.depth ?? 0) + 1)}${section.title}  §§ ${section.paragraphs}`
     ),
   ]
     .filter((line) => line !== undefined)
