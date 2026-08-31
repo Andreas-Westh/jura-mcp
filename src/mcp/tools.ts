@@ -54,6 +54,7 @@ const DOCUMENT_SCHEMA = z.object({
   ministry: z.string(),
   status: z.enum(DocumentStatus),
   currentUntil: z.string().optional(),
+  warning: z.string().optional(),
   laterChanges: z.array(
     z.object({ announcedOn: z.string(), title: z.string() })
   ),
@@ -67,6 +68,7 @@ const DOCUMENT_SCHEMA = z.object({
   paragraphs: z.array(
     z.object({ number: z.string(), heading: z.string(), text: z.string() })
   ),
+  omittedParagraphs: z.number().optional(),
   provenance: PROVENANCE_SCHEMA,
 });
 
@@ -207,10 +209,15 @@ export const registerTools = (server: McpServer): void => {
     },
     async ({ identifier, paragraphs }) => {
       const document = await readStatute(identifier);
+      const warning = warnAboutAge(document);
       if (!paragraphs) {
         return {
           content: [{ type: "text", text: formatOutline(document) }],
-          structuredContent: { ...document, paragraphs: [] },
+          structuredContent: {
+            ...document,
+            paragraphs: [],
+            ...(warning ? { warning } : {}),
+          },
         };
       }
 
@@ -229,7 +236,12 @@ export const registerTools = (server: McpServer): void => {
             text: `${formatOutline(document)}\n\n${formatParagraphs(shown)}${truncated}`,
           },
         ],
-        structuredContent: { ...document, paragraphs: shown },
+        structuredContent: {
+          ...document,
+          paragraphs: shown,
+          ...(warning ? { warning } : {}),
+          ...(omitted.length > 0 ? { omittedParagraphs: omitted.length } : {}),
+        },
       };
     }
   );
