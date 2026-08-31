@@ -127,8 +127,7 @@ const walk = (
   const section: Section = {
     title,
     ...(depth > 0 ? { depth } : {}),
-    // ponytail: an en dash joins the range because a merged § number like `28-30` already holds a hyphen.
-    paragraphs: first === last ? first : `${first}–${last}`,
+    paragraphs: first === last ? first : `${first}..${last}`,
   };
   return { sections: [section, ...sections], paragraphs };
 };

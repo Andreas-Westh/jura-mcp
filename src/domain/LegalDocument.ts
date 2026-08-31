@@ -28,7 +28,6 @@ export interface Section {
   title: string;
   /** How many titled sections contain this one. Absent at the top level. */
   depth?: number;
-  /** The § range, for example `1–9a`, or a single § like `306`. */
   paragraphs: string;
 }
 

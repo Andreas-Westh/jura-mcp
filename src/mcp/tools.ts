@@ -141,7 +141,7 @@ const selectParagraphs = (
   };
 
   return selection.split(",").flatMap((part) => {
-    const [from, to] = part.split("-").map((bound) => bound.trim());
+    const [from, to] = part.split("..").map((bound) => bound.trim());
     return paragraphs.slice(indexOf(from!), indexOf(to ?? from!) + 1);
   });
 };
@@ -201,7 +201,9 @@ export const registerTools = (server: McpServer): void => {
           .max(100)
           .optional()
           .describe(
-            'Which \u00a7 to read. For example "36", "38-38c" or "1,9a". Leave it out to get the outline.'
+            'Which \u00a7 to read. For example "36", "38..38c" or "1,9a". ' +
+              "A range uses two dots, because a \u00a7 number can hold a hyphen. " +
+              "Leave it out to get the outline."
           ),
       }),
       outputSchema: DOCUMENT_SCHEMA,

@@ -79,11 +79,11 @@ test("parses a statute and leaves the commencement provisions out", () => {
   );
 
   assert.deepEqual(document.sections, [
-    { title: "I. Om aftaler", paragraphs: "1–9a" },
+    { title: "I. Om aftaler", paragraphs: "1..9a" },
     {
       title: "1. kapitel — Indledende bestemmelser",
       depth: 1,
-      paragraphs: "1–9a",
+      paragraphs: "1..9a",
     },
   ]);
 });
