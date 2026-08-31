@@ -6,6 +6,7 @@
     "start": "tsx src/index.ts",
     "start-watch": "tsx watch src/index.ts",
     "stdio": "tsx src/stdio.ts",
+    "inspect": "npx @modelcontextprotocol/inspector tsx src/stdio.ts",
     "compile": "tsc --noEmit",
     "format": "prettier --write .",
     "lint": "prettier --check . && tsc --noEmit",
