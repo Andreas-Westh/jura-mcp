@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "description": "MCP server for Danish and EU legal sources",
   "scripts": {
-    "start": "tsx src/index.ts",
-    "start-watch": "tsx watch src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
     "stdio": "tsx src/stdio.ts",
     "inspect": "npx @modelcontextprotocol/inspector tsx src/stdio.ts",
-    "compile": "tsc --noEmit",
+    "validate": "prettier --check . && tsc --noEmit",
     "format": "prettier --write .",
-    "lint": "prettier --check . && tsc --noEmit",
-    "test": "tsx --test test/*.test.ts"
+    "test": "node --import=tsx --test --test-global-setup=./test/globalSetup.mjs test/*.test.ts"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,9 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@modelcontextprotocol/client": "^2.0.0",
     "@types/node": "^26.2.0",
+    "nock": "^14.0.17",
     "prettier": "^3.9.6",
     "tsx": "^4.23.12",
     "typescript": "^7.0.2"

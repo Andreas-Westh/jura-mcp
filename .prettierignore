@@ -1,3 +1,5 @@
 
 # prettier leaves the README alone
 *.md
+test/fixtures/
+learning/

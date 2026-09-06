@@ -1,0 +1,16 @@
+name: Non-main
+
+on:
+  push:
+    branches:
+      - "**"
+      - "!main"
+
+jobs:
+  validate:
+    name: validate
+    uses: ./.github/workflows/validate.yaml
+
+  test:
+    name: tests
+    uses: ./.github/workflows/test.yaml

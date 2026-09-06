@@ -1,0 +1,40 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: validate
+    uses: ./.github/workflows/validate.yaml
+
+  test:
+    name: tests
+    uses: ./.github/workflows/test.yaml
+
+  docker:
+    name: Docker image boots
+    needs:
+      - validate
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t jura-mcp .
+      - name: Boot the image and call tools/list
+        # I will improve this at some point
+        run: |
+          docker run -d --name jura-mcp -p 8080:8080 jura-mcp
+          for i in $(seq 1 20); do
+            curl -sf -X POST http://localhost:8080/ \
+              -H 'content-type: application/json' \
+              -H 'accept: application/json, text/event-stream' \
+              -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' \
+              | grep -q find_statute && exit 0
+            sleep 1
+          done
+          echo "The container did not serve tools/list"
+          docker logs jura-mcp
+          exit 1
