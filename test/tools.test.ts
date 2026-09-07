@@ -118,3 +118,22 @@ test("an unknown paragraph is reported to the model, not thrown at the transport
     ]);
   });
 });
+
+test("a selection above the character budget is truncated, not refused", async () => {
+  mockRetsinformation();
+  await withClient(async (client) => {
+    const result = await client.callTool({
+      name: "read_statute",
+      arguments: { identifier: "eli/lta/2016/193", paragraphs: "1..38" },
+    });
+
+    assert.notEqual(result.isError, true);
+    assert.partialDeepStrictEqual(result.structuredContent, {
+      omittedParagraphs: 11,
+    });
+    assert.equal(
+      (result.structuredContent as { paragraphs: unknown[] }).paragraphs.length,
+      28
+    );
+  });
+});
