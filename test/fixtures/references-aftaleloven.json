@@ -1,0 +1,94 @@
+{
+  "documentId": 177079,
+  "referenceGroups": [
+    {
+      "showExtendedReferenceLinks": false,
+      "header": "Konsolideret ved",
+      "references": []
+    },
+    {
+      "showExtendedReferenceLinks": true,
+      "header": "Senere ændringer til forskriften",
+      "references": [
+        {
+          "id": 226345,
+          "shortName": "LOV nr 2158 af 27/11/2021 § 2",
+          "paragraph": 2,
+          "title": "Lov om ændring af lov om forbrugeraftaler og lov om aftaler og andre retshandler på formuerettens område (Ændring af reglerne om forbrugeraftaler som følge af implementering af visse dele af direktivpakken New Deal for Consumers (moderniseringsdirektivet) og ændringer af forbrugerbeskyttende regler, der falder uden for implementering af moderniseringsdirektivet)",
+          "eliPath": "/eli/lta/2021/2158",
+          "isHistorical": false,
+          "ressort": "Justitsministeriet",
+          "popularTitle": "",
+          "geografiskDaekningId": 0,
+          "retsinfoKlassifikationId": 10,
+          "offentliggoerelsesDato": "28-11-2021"
+        }
+      ]
+    },
+    {
+      "showExtendedReferenceLinks": false,
+      "header": "Ændrer i/ophæver",
+      "references": []
+    },
+    {
+      "showExtendedReferenceLinks": false,
+      "header": "Dokumentets indarbejdede forskrifter",
+      "references": [
+        {
+          "id": 82218,
+          "shortName": "LBK nr 781 af 26/08/1996 ",
+          "title": "Bekendtgørelse af lov om aftaler og andre retshandler på formuerettens område ",
+          "eliPath": "/eli/lta/1996/781",
+          "isHistorical": true,
+          "ressort": "Justitsministeriet",
+          "popularTitle": "Aftaleloven",
+          "geografiskDaekningId": 0,
+          "retsinfoKlassifikationId": 10,
+          "offentliggoerelsesDato": "06-09-1996"
+        },
+        {
+          "id": 139901,
+          "shortName": "LOV nr 1376 af 28/12/2011 ",
+          "title": "Lov om ændring af international købelov og lov om aftaler og andre retshandler på formuerettens område\\n(Gennemførelse i dansk ret af del II om aftalens indgåelse i FN-konventionen om aftaler om internationale køb)",
+          "eliPath": "/eli/lta/2011/1376",
+          "isHistorical": true,
+          "ressort": "Justitsministeriet",
+          "popularTitle": "",
+          "geografiskDaekningId": 0,
+          "retsinfoKlassifikationId": 10,
+          "offentliggoerelsesDato": "29-12-2011"
+        },
+        {
+          "id": 176313,
+          "shortName": "LOV nr 1565 af 15/12/2015 ",
+          "title": "Lov om ansættelsesklausuler",
+          "eliPath": "/eli/lta/2015/1565",
+          "isHistorical": false,
+          "ressort": "Beskæftigelses- og Ligestillingsministeriet",
+          "popularTitle": "",
+          "geografiskDaekningId": 0,
+          "retsinfoKlassifikationId": 10,
+          "offentliggoerelsesDato": "16-12-2015"
+        }
+      ]
+    }
+  ],
+  "euReferenceGroups": [],
+  "documentLinkGroups": [
+    {
+      "header": "Alle bekendtgørelser m.v. og cirkulærer m.v. til denne lovbekendtgørelse",
+      "data": "177079",
+      "type": 3
+    },
+    {
+      "header": "Afgørelser truffet i henhold til denne retsforskrift",
+      "data": "177079",
+      "type": 6
+    },
+    {
+      "header": "Beretninger fra ombudsmanden, der anvender denne retsforskrift",
+      "data": "177079",
+      "type": 5
+    }
+  ]
+}

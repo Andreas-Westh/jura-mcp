@@ -15,6 +15,7 @@ const fixture = (name: string): string =>
 
 const SEARCH_RESPONSE = fixture("search-aftaleloven.json");
 const DOCUMENT_XML = fixture("aftaleloven.xml");
+const REFERENCES_RESPONSE = fixture("references-aftaleloven.json");
 const AMENDMENT_XML = fixture("amendment-2021-2158.xml");
 const RETSINFORMATION = "https://www.retsinformation.dk";
 
@@ -28,6 +29,9 @@ const mockRetsinformation = (): void => {
   nock(RETSINFORMATION)
     .get("/eli/lta/2016/193/xml")
     .reply(200, DOCUMENT_XML, { "content-type": "application/xml" });
+  nock(RETSINFORMATION)
+    .get("/api/document/177079/references/0")
+    .reply(200, REFERENCES_RESPONSE, { "content-type": "application/json" });
   nock(RETSINFORMATION)
     .get("/eli/lta/2021/2158/xml")
     .reply(200, AMENDMENT_XML, { "content-type": "application/xml" });
@@ -107,7 +111,11 @@ test("read_statute warns that the text predates its own listed changes, and name
       warning:
         "WARNING: this text was consolidated up to 2021-11-28. It does not contain the changes listed below. Read each change by its identifier.",
       laterChanges: [
-        { announcedOn: "2021-11-27", identifier: "eli/lta/2021/2158" },
+        {
+          announcedOn: "2021-11-28",
+          identifier: "eli/lta/2021/2158",
+          changingParagraph: "2",
+        },
       ],
     });
   });

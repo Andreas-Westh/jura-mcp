@@ -10,7 +10,8 @@ export enum DocumentStatus {
 export interface LaterChange {
   announcedOn: string;
   title: string;
-  identifier?: string;
+  identifier: string;
+  changingParagraph?: string;
 }
 
 export interface Paragraph {

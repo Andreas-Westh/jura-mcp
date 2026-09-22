@@ -23,12 +23,6 @@ const XML = `<?xml version="1.0" encoding="utf-8"?>
     <Ministry>Justitsministeriet</Ministry>
     <Status>Valid</Status>
     <EndDate>2021-11-28</EndDate>
-    <Ref_Accn>A20210215830</Ref_Accn>
-    <Ref_Af>2021-11-27</Ref_Af>
-    <Ref_Text>Lov om ændring af testloven</Ref_Text>
-    <Ref_Accn>B20250009405</Ref_Accn>
-    <Ref_Af>2025-03-01</Ref_Af>
-    <Ref_Text>Bekendtgørelse i Lovtidende B</Ref_Text>
   </Meta>
   <DokumentIndhold>
     <Bog>
@@ -71,19 +65,6 @@ test("parses a statute and leaves the commencement provisions out", () => {
   assert.equal(document.popularTitle, "Testloven");
   assert.equal(document.status, DocumentStatus.InForce);
   assert.equal(document.currentUntil, "2021-11-28");
-  assert.deepEqual(document.laterChanges, [
-    {
-      announcedOn: "2021-11-27",
-      title: "Lov om ændring af testloven",
-      identifier: "eli/lta/2021/2158",
-    },
-    {
-      announcedOn: "2025-03-01",
-      title: "Bekendtgørelse i Lovtidende B",
-      identifier: undefined,
-    },
-  ]);
-
   assert.deepEqual(
     document.paragraphs.map((paragraph) => paragraph.number),
     ["1", "9a"]

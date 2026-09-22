@@ -2,7 +2,6 @@ import { XMLParser } from "fast-xml-parser";
 import type { Amendment } from "../../domain/Amendment.js";
 import {
   DocumentStatus,
-  type LaterChange,
   type LegalDocument,
   type Paragraph,
   type Section,
@@ -16,9 +15,6 @@ import type { Provenance } from "../../domain/Provenance.js";
  */
 const REPEATED_ELEMENTS = new Set([
   "Meta",
-  "Ref_Af",
-  "Ref_Text",
-  "Ref_Accn",
   "Bog",
   "Afsnit",
   "Kapitel",
@@ -172,25 +168,6 @@ const walk = (
   return { sections: [section, ...sections], paragraphs };
 };
 
-const LOVTIDENDE_A_ACCESSION = /^A(?<year>\d{4})(?<number>\d{5})\d{2}$/;
-
-const toIdentifier = (accession: string | undefined): string | undefined => {
-  const { year, number } =
-    LOVTIDENDE_A_ACCESSION.exec(accession ?? "")?.groups ?? {};
-  return year && number ? `eli/lta/${year}/${Number(number)}` : undefined;
-};
-
-const toLaterChanges = (meta: {
-  Ref_Af?: string[];
-  Ref_Text?: string[];
-  Ref_Accn?: string[];
-}): LaterChange[] =>
-  (meta.Ref_Af ?? []).map((announcedOn, index) => ({
-    announcedOn,
-    title: collapseSpaces(meta.Ref_Text?.[index] ?? ""),
-    identifier: toIdentifier(meta.Ref_Accn?.[index]),
-  }));
-
 /**
  * An amending act nests its new text inside change instructions instead of a
  * `Bog`, so only consolidated statutes are read.
@@ -202,7 +179,7 @@ const toLaterChanges = (meta: {
 export const parseLexDania = (
   xml: string,
   provenance: Provenance
-): LegalDocument => {
+): Omit<LegalDocument, "laterChanges"> & { uniqueDocumentId: string } => {
   const { Dokument: document } = parser.parse(xml);
   const meta = document.Meta[0];
 
@@ -226,13 +203,13 @@ export const parseLexDania = (
     ministry: meta.Ministry,
     status,
     currentUntil: meta.EndDate || undefined,
-    laterChanges: toLaterChanges(meta),
     sections: body.flatMap(
       (result: { sections: Section[] }) => result.sections
     ),
     paragraphs: body.flatMap(
       (result: { paragraphs: Paragraph[] }) => result.paragraphs
     ),
+    uniqueDocumentId: meta.UniqueDocumentId,
     provenance,
   };
 };

@@ -67,7 +67,8 @@ const DOCUMENT_SCHEMA = z.object({
     z.object({
       announcedOn: z.string(),
       title: z.string(),
-      identifier: z.string().optional(),
+      identifier: z.string(),
+      changingParagraph: z.string().optional(),
     })
   ),
   sections: z.array(
@@ -106,10 +107,9 @@ const formatOutline = (document: LegalDocument): string =>
     `${document.ministry} · ${document.status} · ${document.provenance.url}`,
     warnAboutAge(document),
     document.laterChanges.length > 0 ? "\nLater changes:" : undefined,
-    ...document.laterChanges.map((change) =>
-      [`  ·`, change.announcedOn, change.identifier, change.title]
-        .filter((part) => part !== undefined)
-        .join(" ")
+    ...document.laterChanges.map(
+      ({ announcedOn, identifier, changingParagraph, title }) =>
+        `  · ${announcedOn} ${identifier}${changingParagraph ? ` § ${changingParagraph}` : ""} ${title}`
     ),
     "\nOutline — call again with the § numbers you need:",
     ...document.sections.map(
@@ -258,8 +258,9 @@ export const registerTools = (server: McpServer): void => {
         "and the section titles with their \u00a7 ranges. " +
         "Read the outline first. Then call the tool again with the \u00a7 numbers you need. " +
         "The text is the version consolidated at publication. It does not contain later changes. " +
-        "The tool lists those changes with their identifiers. " +
-        'Read a "Lov om ændring" with read_amendment. Read any other later change with read_statute.',
+        "The tool lists each change with its identifier and the \u00a7 of the changing act that makes it. " +
+        'Read a "Lov om ændring" with read_amendment and pass that \u00a7 as `paragraphs`. ' +
+        "Read any other later change with read_statute.",
       inputSchema: z.object({
         identifier: z
           .string()
