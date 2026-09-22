@@ -1,8 +1,9 @@
 import { z } from "zod";
-import { LegalSource } from "../../domain/Provenance.js";
+import type { Amendment } from "../../domain/Amendment.js";
+import { LegalSource, type Provenance } from "../../domain/Provenance.js";
 import { StatuteKind, type Statute } from "../../domain/Statute.js";
 import type { LegalDocument } from "../../domain/LegalDocument.js";
-import { parseLexDania } from "./lexDania.js";
+import { parseLexDania, parseLexDaniaAmendment } from "./lexDania.js";
 
 const BASE_URL = "https://www.retsinformation.dk";
 const MAX_RESULTS = 10;
@@ -90,10 +91,9 @@ export const findStatutes = async (query: string): Promise<Statute[]> => {
     .map((document) => toStatute(document, retrievedAt));
 };
 
-/** The text is the version consolidated at publication. Later changes are not applied to it. */
-export const readStatute = async (
+const fetchLexDania = async (
   identifier: string
-): Promise<LegalDocument> => {
+): Promise<{ xml: string; provenance: Provenance }> => {
   const url = `${BASE_URL}/${identifier}`;
   const response = await fetch(`${url}/xml`, {
     headers: { accept: "application/xml" },
@@ -104,10 +104,26 @@ export const readStatute = async (
     );
   }
 
-  return parseLexDania(await response.text(), {
-    source: LegalSource.Retsinformation,
-    identifier,
-    url,
-    retrievedAt: new Date().toISOString(),
-  });
+  return {
+    xml: await response.text(),
+    provenance: {
+      source: LegalSource.Retsinformation,
+      identifier,
+      url,
+      retrievedAt: new Date().toISOString(),
+    },
+  };
+};
+
+/** The text is the version consolidated at publication. Later changes are not applied to it. */
+export const readStatute = async (
+  identifier: string
+): Promise<LegalDocument> => {
+  const { xml, provenance } = await fetchLexDania(identifier);
+  return parseLexDania(xml, provenance);
+};
+
+export const readAmendment = async (identifier: string): Promise<Amendment> => {
+  const { xml, provenance } = await fetchLexDania(identifier);
+  return parseLexDaniaAmendment(xml, provenance);
 };

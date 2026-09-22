@@ -1,0 +1,1519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dokument id="id63869028-a885-4358-a1cd-0d1018f795bf" SchemaLocation="http://www.retsinformation.dk/offentlig/xml/schemas/2016/09/26/LOVC.Retsinfo.LexDania_2.1.xsd">
+  <Meta id="idd6745799-1135-46a8-8409-fb2931225502">
+    <DocumentType>LOV Æ#LOKDOK02</DocumentType>
+    <Rank>A</Rank>
+    <AccessionNumber>A20210215830</AccessionNumber>
+    <DocumentId>AA012767</DocumentId>
+    <UniqueDocumentId>226345</UniqueDocumentId>
+    <DocumentTitle>Lov om ændring af lov om forbrugeraftaler og lov om aftaler og andre retshandler på formuerettens område (Ændring af reglerne om forbrugeraftaler som følge af implementering af visse dele af direktivpakken New Deal for Consumers (moderniseringsdirektivet) og ændringer af forbrugerbeskyttende regler, der falder uden for implementering af moderniseringsdirektivet)</DocumentTitle>
+    <Year>2021</Year>
+    <DiesSigni>2021-11-27</DiesSigni>
+    <DateOfSubmit id="submit_1" />
+    <StartDate REFid="submit_1">2021-11-27</StartDate>
+    <EndDate REFid="submit_1">2025-10-07</EndDate>
+    <Status>Valid</Status>
+    <Number>2158</Number>
+    <AnnouncedIn>Lovtidende A</AnnouncedIn>
+    <DiesEdicti>2021-11-27</DiesEdicti>
+    <Republished>Nej</Republished>
+    <Sign id="sign" />
+    <Signature REFid="sign">MARGRETHE R.</Signature>
+    <Sub-Sign id="subsign" />
+    <Signature REFid="subsign">Nick Hækkerup</Signature>
+    <PlaceOfSignature>Givet på Fredensborg Slot</PlaceOfSignature>
+    <JournalNumber>Justitsmin., j.nr. 2021-709-0291</JournalNumber>
+    <Ministry>Justitsministeriet</Ministry>
+  </Meta>
+  <TitelGruppe id="id8a9c3963-dac9-4b31-9040-39aa147e71db">
+    <Titel id="id4ed0eb43-e2bc-40a3-bbe4-6b331369c4d6">
+      <Linea>
+        <Char>Lov om ændring af lov om forbrugeraftaler og lov om aftaler og andre retshandler på formuerettens område</Char>
+      </Linea>
+    </Titel>
+    <UnderTitel id="idf18fcfa1-5b6d-4a81-a9ca-fc6ac6dd0d8c">
+      <Linea>
+        <Char>(Ændring af reglerne om forbrugeraftaler som følge af implementering af visse dele af direktivpakken New Deal for Consumers (moderniseringsdirektivet) og ændringer af forbrugerbeskyttende regler, der falder uden for implementering af moderniseringsdirektivet)</Char>
+      </Linea>
+    </UnderTitel>
+  </TitelGruppe>
+  <DokumentIndhold id="id7886437f-8ac4-4270-8885-f384875ab0ae">
+    <Hymne id="iddefdfd3b-99ed-41e7-ab40-07b88d5c1300">
+      <Exitus>
+        <Linea>
+          <Char>VI MARGRETHE DEN ANDEN, af Guds Nåde Danmarks Dronning, gør vitterligt:</Char>
+        </Linea>
+      </Exitus>
+      <Exitus>
+        <Linea>
+          <Char>Folketinget har vedtaget og Vi ved Vort samtykke stadfæstet følgende lov:</Char>
+        </Linea>
+      </Exitus>
+    </Hymne>
+    <AendringCentreretParagraf id="id831895f5-3c82-4913-83e1-19d37934036a" localId="1">
+      <Explicatus>§ 1</Explicatus>
+      <Exitus>
+        <Linea>
+          <Char>I lov om forbrugeraftaler, jf. lovbekendtgørelse nr. 1457 af 17. december 2013, som ændret ved § 160 i lov nr. 652 af 8. juni 2017 og § 44 i lov nr. 1666 af 26. december 2017, foretages følgende ændringer:</Char>
+        </Linea>
+      </Exitus>
+      <AendringsNummer id="id5fa6e76a-0ea8-411c-a011-2a9d6ac39014">
+        <Explicatus>1.</Explicatus>
+        <Aendring id="idf108df0c-3824-4b32-9cf5-4ffb9425013c">
+          <AendringDefinition id="id01fbdc46-50b2-4bfe-9382-0c96b391e0e2">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">fodnoten</Char>
+                <Char> til lovens titel indsættes efter »side 64,«: »som ændret ved Europa-Parlamentets og Rådets direktiv 2019/2161/EU af 27. november 2019 om ændring af Rådets direktiv 93/13/EØF og Europa-Parlamentets og Rådets direktiv 98/6/EF, 2005/29/EF og 2011/83/EU, for så vidt angår bedre håndhævelse og modernisering af EU-reglerne om forbrugerbeskyttelse, EU-Tidende 2019, nr. L 328, side 7,«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id141efd11-a323-4555-a1b2-7dc691cfc888">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id2a4220a6-9f43-4f1c-99ac-bab8bf2fa0d8">
+        <Explicatus>2.</Explicatus>
+        <Aendring id="id68f35b9b-061a-401b-bab3-498683e8b839">
+          <AendringDefinition id="idfda88e25-ea55-4014-b44e-00143760a394">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 1, stk. 2, nr. 1, </Char>
+                <Char>og </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">stk. 3,</Char>
+                <Char> ændres »nr. 1« til: »nr. 4«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id6db9d9bb-b252-4cdd-aaa0-1a863b8701de">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id5980b8f9-7405-4f09-8654-98a68bfbf73c">
+        <Explicatus>3.</Explicatus>
+        <Aendring id="id8f66374d-a28e-494f-a4e2-44714ab87bed">
+          <AendringDefinition id="id43d9ce0d-066e-412f-b646-cdf06c02cb80">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 1, stk. 2, nr. 2,</Char>
+                <Char> ændres »nr. 2« til: »nr. 5«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id1c17c2b1-fefe-4705-b74c-e28437e2c26f">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id832335b6-0e02-4c0a-90b3-1c7b18ca4193">
+        <Explicatus>4.</Explicatus>
+        <Aendring id="idfbed2d8c-2626-4bf8-8f85-b36c912e3bc1">
+          <AendringDefinition id="idc61435b4-bb8b-42b1-abb4-58b80c1a02c0">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 1, stk. 4, nr. 4, </Char>
+                <Char>ændres »§§ 12 og 31« til: »§§ 4, 12, 30 og 31«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id64d0d18e-0992-48e2-ba54-85a8c8deea11">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id8789491a-645f-44c5-bdea-3bf05585e724">
+        <Explicatus>5.</Explicatus>
+        <Aendring id="id9c3ad10f-5201-4732-982b-e913f73ee845">
+          <AendringDefinition id="idec7323ac-462e-411a-9ec9-028efd8ef0eb">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 2, stk. 1, </Char>
+                <Char>indsættes efter »aftale,«: »herunder en aftale omfattet af købelovens § 4 a, stk. 3,«, og efter »erhvervsdrivende« indsættes: »eller en person, der optræder i dennes navn eller på dennes vegne,«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="ideda1185f-94cf-480c-8cb0-4a0944dbdfbc">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idf7f4904c-86da-4611-a1b8-ecb6967403af">
+        <Explicatus>6.</Explicatus>
+        <Aendring id="ideeea9045-8581-4c69-8f01-fcd8b65b39de">
+          <AendringDefinition id="idefb2ae18-e480-43a1-8fdb-4fb5333e7321">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 3 </Char>
+                <Char>indsættes før nr. 1 som nye numre:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id9340578f-5bb3-4da1-84b0-d72c6b35d079">
+            <AendringNyTekst>
+              <Exitus id="idc1498fa1-2daa-43de-8bd5-cb9638cf01cf">
+                <Index>
+                  <Indentatio id="id6bf69e5e-19a6-4070-9dd3-59ddf5439ff2" formaInd="Nummer">
+                    <Explicatus>1)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Varer: Løsøregenstande, herunder varer med digitale elementer, og vand, gas og elektricitet, der udbydes til salg i et afgrænset volumen eller en bestemt mængde.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="idac559c40-39fe-4c13-9786-72532f1c7568" formaInd="Nummer">
+                    <Explicatus>2)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Aftale om en vare: Aftale om at overdrage ejendomsretten til en vare til forbrugeren, herunder når aftalen også omfatter tjenesteydelser.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="id38374066-70e6-4e21-b0c6-7dfbe67910d1" formaInd="Nummer">
+                    <Explicatus>3)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Tjenesteydelsesaftale: Aftale om at levere en tjenesteydelse, herunder en digital tjeneste, og aftale om at levere vand, gas og elektricitet, der ikke udbydes til salg i et afgrænset volumen eller en bestemt mængde, til forbrugeren, medmindre aftalen også omfatter varer, jf. nr. 2.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                </Index>
+              </Exitus>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+        <Rykningsklausul id="id76e20dde-4c1d-4c99-8fa1-f7bef9cea8c8">
+          <Exitus>
+            <Linea>
+              <Char>Nr. 1-6 bliver herefter nr. 4-9.</Char>
+            </Linea>
+          </Exitus>
+        </Rykningsklausul>
+      </AendringsNummer>
+      <AendringsNummer id="id8fd99a72-0901-4f0d-b8a0-d300c5995c83">
+        <Explicatus>7.</Explicatus>
+        <Aendring id="id04387424-6707-48be-a44e-e9de1670483e">
+          <AendringDefinition id="id390cfe1e-8eb3-433c-ad8e-235e2ed44e1f">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 3, nr. 1, </Char>
+                <Char>som bliver nr. 4, indsættes efter »aftalen«: »til og med tidspunktet for dens indgåelse udelukkende«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id9236f6ab-b355-4989-b23e-d6faef21d6de">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idc4b453b0-94d5-4ac1-ada8-2bfa2b9f1871">
+        <Explicatus>8.</Explicatus>
+        <Aendring id="id47e857fc-2d46-4c21-b64b-6335307188ae">
+          <AendringDefinition id="idf63c22fc-6ea2-44a0-b7e4-536e357f1d44">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 3 </Char>
+                <Char>indsættes som </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">nr. 10-18:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id5a5370a3-c4cd-4422-ad21-9074e527b6a1">
+            <AendringNyTekst>
+              <Exitus id="idd30c1bee-f62c-494e-981c-2f9139c2347a">
+                <Index>
+                  <Indentatio id="idea1191ae-611e-4395-8e5b-ed1f5accf5b5" formaInd="Nummer">
+                    <Explicatus>10)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Digitalt indhold: Data, der fremstilles og leveres i digital form.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="id961b8ea4-8e37-49d6-9c35-8c1f653a0f31" formaInd="Nummer">
+                    <Explicatus>11)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Vare med digitale elementer: En løsøregenstand, der integrerer eller er indbyrdes forbundet med digitalt indhold eller en digital tjeneste på en sådan måde, at fraværet af det digitale indhold eller den digitale tjeneste ville forhindre genstanden i at opfylde sin funktion.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="id29b2a6bb-5dc2-4d17-a485-99979bfebb9a" formaInd="Nummer">
+                    <Explicatus>12)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Digital tjeneste: Tjeneste, der gør det muligt at generere, behandle, lagre eller få adgang til data i digital form, eller som muliggør deling af eller enhver anden form for interaktion med data i digital form, som uploades eller genereres af brugere af den pågældende tjeneste.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="idd080329c-5ba0-4453-b82e-c7be6fcbaddb" formaInd="Nummer">
+                    <Explicatus>13)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Kompatibilitet: Det digitale indholds eller den digitale tjenestes evne til at fungere med hardware eller software, med hvilket digitalt indhold eller digitale tjenester af samme type normalt anvendes, uden at det er nødvendigt at konvertere det digitale indhold eller den digitale tjeneste.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="idec9400ff-3c56-438e-9b0f-34bac39af53a" formaInd="Nummer">
+                    <Explicatus>14)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Funktionalitet: Det digitale indholds eller den digitale tjenestes evne til at udføre sine funktioner i betragtning af formålet.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="idbe2724bb-17a1-42d6-b76f-d6aad8adbed8" formaInd="Nummer">
+                    <Explicatus>15)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Interoperabilitet: Det digitale indholds eller den digitale tjenestes evne til at fungere med hardware eller software, der adskiller sig fra det, som digitalt indhold eller digitale tjenester af samme type normalt anvendes med.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="ided54da0a-3a7a-4a8a-8077-5170b60569d8" formaInd="Nummer">
+                    <Explicatus>16)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Onlinemarkedsplads: En tjenesteydelse, der gør brug af software, herunder et websted, en del af et websted eller en applikation, der drives af eller på vegne af en erhvervsdrivende, og som giver forbrugere mulighed for at indgå fjernsalgsaftaler med andre erhvervsdrivende eller forbrugere.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="id7f2a71fc-4c7e-4ac5-a9d0-db6432e566de" formaInd="Nummer">
+                    <Explicatus>17)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Udbyder af en onlinemarkedsplads: Erhvervsdrivende, der udbyder en onlinemarkedsplads til forbrugere.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                  <Indentatio id="idcbb7c86e-1ef4-44bd-b40b-7b2b009b2969" formaInd="Nummer">
+                    <Explicatus>18)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>Handelsmæssig garanti: Enhver forpligtelse, som den erhvervsdrivende eller en producent (garantigiveren) har påtaget sig over for forbrugeren, ud over sin retlige forpligtelse til at levere en kontraktmæssig ydelse, til at refundere købesummen eller omlevere, reparere eller på anden måde afhjælpe mangler ved salgsgenstanden, hvis den ikke svarer til de specifikationer eller ethvert andet krav, der fremgår af garantierklæringen eller af de relevante reklamer, der var tilgængelige på tidspunktet for eller før aftalens indgåelse, og som ikke relaterer sig til ydelsens kontraktmæssighed.</Char>
+                      </Linea>
+                    </Exitus>
+                  </Indentatio>
+                </Index>
+              </Exitus>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id92011599-8263-4893-bd05-a0966e696ade">
+        <Explicatus>9.</Explicatus>
+        <Aendring id="id2b0cfc7e-aadc-4c06-aabf-106e4e20928e">
+          <AendringDefinition id="id575ba0b7-4502-45ae-9bd6-c9b837343650">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 6 </Char>
+                <Char>indsættes som </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">3. pkt.:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id4048577a-064f-4db9-a61e-cc47a2a6ad0e">
+            <AendringNyTekst>
+              <Exitus>
+                <Linea>
+                  <Char>Manglende reaktion fra forbrugeren efter modtagelsen af varer eller udførelsen af tjenesteydelser uden forudgående anmodning medfører ikke, at forbrugeren forpligtes til at betale vederlag for det leverede.</Char>
+                </Linea>
+              </Exitus>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idabcb31da-2223-4c51-a17f-81c8935609ec">
+        <Explicatus>10.</Explicatus>
+        <Aendring id="idded69b3c-3448-4194-ad51-cc25d8301d18">
+          <AendringDefinition id="id8c72b861-8039-4830-805c-0e8f193160b3">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 1, nr. 2, </Char>
+                <Char>og </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 17, stk. 1, nr. 2, </Char>
+                <Char>ændres »samt eventuelle telefon- og faxnumre« til: »og den erhvervsdrivendes telefonnummer«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="idc7eeb0d9-8db1-42e4-b8df-9b6981f47e15">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id46f84a8f-c7a7-4586-a55a-07089acdea28">
+        <Explicatus>11.</Explicatus>
+        <Aendring id="ida3c9a472-6116-4dc8-89dc-4223619e6664">
+          <AendringDefinition id="id92d106a9-af53-435e-ad7e-fd0b05ca375d">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 1, </Char>
+                <Char>indsættes efter nr. 2 som nyt nummer:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="ide564d9b6-7b13-4023-b14d-0fadce6b8e00" punktumEfterSlutcitationstegn="True">
+            <AendringNyTekst>
+              <Indentatio id="id5b72770c-14ec-48d8-a3c6-3a0bc013680b" formaInd="Nummer">
+                <Explicatus>3)</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>hvor det er relevant, andre onlinekommunikationsmidler, som den erhvervsdrivende giver adgang til, og som giver forbrugeren mulighed for at opbevare skriftlig korrespondance, herunder datoen og tidspunktet for en sådan korrespondance, med den erhvervsdrivende på et varigt medium,</Char>
+                  </Linea>
+                </Exitus>
+              </Indentatio>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+        <Rykningsklausul id="id14da0d3e-3df5-4409-9857-4ee049f5ba49">
+          <Exitus>
+            <Linea>
+              <Char>Nr. 3-6 bliver herefter nr. 4-7.</Char>
+            </Linea>
+          </Exitus>
+        </Rykningsklausul>
+      </AendringsNummer>
+      <AendringsNummer id="id0cc766f9-c8c9-45ff-9dff-e9f81a316f5c">
+        <Explicatus>12.</Explicatus>
+        <Aendring id="id848e23cf-0d48-4e92-812f-9289cab1f6fe">
+          <AendringDefinition id="idd67121ed-68b2-497e-a766-4b2057dbc9f4">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 1, nr. 4, </Char>
+                <Char>der bliver nr. 5, ændres »nr. 3« til: »nr. 4«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id8e9e511a-e690-4e98-b901-9fb708c46466">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idedb91980-6d60-4376-b2fb-e7ae6890de71">
+        <Explicatus>13.</Explicatus>
+        <Aendring id="ida2b5361a-ca37-4c6b-8629-782f566d14a8">
+          <AendringDefinition id="id14110f31-bc5c-4acb-87d0-3f20a86bdf29">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 1, </Char>
+                <Char>indsættes efter nr. 6, der bliver nr. 7, som nyt nummer:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="idfb5b08b3-62d9-44f9-b6a3-adc063f14c32" punktumEfterSlutcitationstegn="True">
+            <AendringNyTekst>
+              <Indentatio id="id570cd590-c9f4-46e3-b888-09c5557a16f0" formaInd="Nummer">
+                <Explicatus>8)</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>hvor det er relevant, at prisen er blevet personaliseret på grundlag af automatiseret beslutningstagning,</Char>
+                  </Linea>
+                </Exitus>
+              </Indentatio>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+        <Rykningsklausul id="id6f53fcc0-b213-4895-bf35-877aca2bc615">
+          <Exitus>
+            <Linea>
+              <Char>Nr. 7-22 bliver herefter nr. 9-24.</Char>
+            </Linea>
+          </Exitus>
+        </Rykningsklausul>
+      </AendringsNummer>
+      <AendringsNummer id="id99d6f424-e1a8-4a43-948a-d4bacd47c496">
+        <Explicatus>14.</Explicatus>
+        <Aendring id="id8f16bb26-43df-445e-bd4f-89400848e5fe">
+          <AendringDefinition id="idd8c83f3b-ffc7-4b66-8cc2-5464e9dcbd05">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 1, nr. 10,</Char>
+                <Char> der bliver nr. 12, ændres »stk. 2 og 3« til: »stk. 2-4«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id7736e4c5-0b98-41c3-8632-fe64e354a26d">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id744e3c43-37d9-4d03-968b-b13abb3e13fa">
+        <Explicatus>15.</Explicatus>
+        <Aendring id="id14a81268-b0c7-483a-8e18-26b5df1aa1bd">
+          <AendringDefinition id="id8473f769-5bd3-43c3-ad46-3ddd94de2777">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 1, nr. 20, </Char>
+                <Char>der bliver nr. 22, og </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 17, stk. 1, nr. 8, </Char>
+                <Char>indsættes efter »digitalt indhold,«: »digitale tjenester og varer med digitale elementer,«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id4988a383-ee65-412f-a257-baad629d0ae8">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idbf78e27e-680b-45d5-a806-ff2f36e3b9d3">
+        <Explicatus>16.</Explicatus>
+        <Aendring id="idcdc7e2a2-108d-45b7-803b-e4bdbfaf3697">
+          <AendringDefinition id="ida6ef925d-d712-43be-ba6a-7d9b53730ea9">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 1, nr. 21, </Char>
+                <Char>der bliver nr. 23, og </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 17, stk. 1, nr. 9, </Char>
+                <Char>ændres »det digitale indholds evne til at fungere sammen med hardware og software« til: »kompatibiliteten og interoperabiliteten af digitalt indhold, digitale tjenester og varer med digitale elementer«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id336e422a-ed15-4ce8-ae3c-6fd2bab9708d">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id9bd6df06-fe2c-46c3-8a23-00f2555ee4e2">
+        <Explicatus>17.</Explicatus>
+        <Aendring id="idf97e619a-21fe-46d4-8404-1cdfd97e830d">
+          <AendringDefinition id="iddc242fe2-d213-46ad-bb9a-cb15793e5f1f">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 1, nr. 22, </Char>
+                <Char>der bliver nr. 24, ændres »fremgangsmåden ved« til: »forudsætningerne for«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id466f31fa-71ac-49c7-89a3-67c67b0bd28d">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="iddae9bf76-11d4-4039-bc25-9ee9f3901293">
+        <Explicatus>18.</Explicatus>
+        <Aendring id="id6baca596-46fd-4930-a840-5c2f3e5b88bc">
+          <AendringDefinition id="iddd40700a-43ac-4965-a9bf-1818bb0c47c2">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8 </Char>
+                <Char>indsættes efter stk. 1 som nyt stykke:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="ida4b757e4-1631-4cce-ae2e-ef80cab1a339">
+            <AendringNyTekst>
+              <Stk id="id83397b25-7d02-435d-87c4-5fb7eb599635">
+                <Explicatus>Stk. 2.</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>Alle kommunikationsmidler, som den erhvervsdrivende stiller til rådighed, jf. stk. 1, nr. 2 og 3, skal gøre det muligt for forbrugeren at kontakte den erhvervsdrivende hurtigt og kommunikere effektivt med vedkommende.</Char>
+                  </Linea>
+                </Exitus>
+              </Stk>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+        <Rykningsklausul id="id3a848ae4-3e8e-40f2-887e-36ab3fb1222f">
+          <Exitus>
+            <Linea>
+              <Char>Stk. 2 og 3 bliver herefter stk. 3 og 4.</Char>
+            </Linea>
+          </Exitus>
+        </Rykningsklausul>
+      </AendringsNummer>
+      <AendringsNummer id="id613118dc-fab3-4820-a804-5b83a6f4a465">
+        <Explicatus>19.</Explicatus>
+        <Aendring id="id1479d0b4-92b9-4c66-99b8-ec9f3d8d378f">
+          <AendringDefinition id="id38fe0a71-27d6-4fec-816e-b94bdee434eb">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 8, stk. 2, </Char>
+                <Char>der bliver stk. 3, ændres »nr. 2-4« til: »nr. 2-5«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="ida99dee43-252c-4db5-9aec-3de33ef69c10">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id7d58643a-a68b-47f7-ab20-bfb1ba5a8de9">
+        <Explicatus>20.</Explicatus>
+        <Aendring id="id679ccc74-61b3-4cb5-8706-249daa2fddc6">
+          <AendringDefinition id="id8f7893ad-4394-4ce7-afd8-96a59fce6d40">
+            <Exitus>
+              <Linea>
+                <Char>Efter § 8 indsættes:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id87d7f212-06ae-4177-9b22-f6eac9b4b29b">
+            <AendringNyTekst>
+              <Paragraf id="id98058bc6-b7f6-4aaf-97f3-6a7241d41fad" localId="8a">
+                <Explicatus>§ 8 a.</Explicatus>
+                <Stk id="ida4b58227-716b-46f5-8ab5-f4b4b7373c20">
+                  <Exitus>
+                    <Linea>
+                      <Char>Inden der indgås en aftale om fjernsalg på en onlinemarkedsplads, skal udbyderen af onlinemarkedspladsen endvidere på en klar og forståelig måde, der egner sig til fjernkommunikation, give forbrugeren oplysning om</Char>
+                    </Linea>
+                  </Exitus>
+                  <Exitus id="id1ea92663-b537-455f-ade3-cfa94cf1e442">
+                    <Index>
+                      <Indentatio id="id02d21811-6d0b-457e-b439-43d7058a3f51" formaInd="Nummer">
+                        <Explicatus>1)</Explicatus>
+                        <Exitus>
+                          <Linea>
+                            <Char>identiteten på og hjemstedet for den tredjemand, der tilbyder varen, tjenesteydelsen eller det digitale indhold på onlinemarkedspladsen,</Char>
+                          </Linea>
+                        </Exitus>
+                      </Indentatio>
+                      <Indentatio id="id403d15ba-5c9a-464d-b48e-f60b5370e7c4" formaInd="Nummer">
+                        <Explicatus>2)</Explicatus>
+                        <Exitus>
+                          <Linea>
+                            <Char>hvorvidt denne tredjemand er erhvervsdrivende,</Char>
+                          </Linea>
+                        </Exitus>
+                      </Indentatio>
+                      <Indentatio id="id67508f4e-044d-4061-824a-dc32a924d9ff" formaInd="Nummer">
+                        <Explicatus>3)</Explicatus>
+                        <Exitus>
+                          <Linea>
+                            <Char>når denne tredjemand ikke er erhvervsdrivende, om forbrugerrettigheder hidrørende fra EU-forbrugerbeskyttelsesretten gælder for aftalen,</Char>
+                          </Linea>
+                        </Exitus>
+                      </Indentatio>
+                      <Indentatio id="id2a4e9d67-bc4f-4d82-939e-81606925a812" formaInd="Nummer">
+                        <Explicatus>4)</Explicatus>
+                        <Exitus>
+                          <Linea>
+                            <Char>hvis det er relevant, hvordan forpligtelserne i forbindelse med aftalen deles mellem denne tredjemand og udbyderen af onlinemarkedspladsen, og</Char>
+                          </Linea>
+                        </Exitus>
+                      </Indentatio>
+                      <Indentatio id="id4794dfe4-c61c-4d35-8fb8-a4b694b108e5" formaInd="Nummer">
+                        <Explicatus>5)</Explicatus>
+                        <Exitus>
+                          <Linea>
+                            <Char>generelle oplysninger om de vigtigste parametre for rangordningen af de tilbud, som forbrugeren præsenteres for som følge af en søgning, og den relative betydning af disse parametre i forhold til andre parametre.</Char>
+                          </Linea>
+                        </Exitus>
+                      </Indentatio>
+                    </Index>
+                  </Exitus>
+                </Stk>
+                <Stk id="id326e70b9-c7b2-4dc8-abb7-54040f497068">
+                  <Explicatus>Stk. 2.</Explicatus>
+                  <Exitus>
+                    <Linea>
+                      <Char>Oplysning efter stk. 1, nr. 2, kan gives på grundlag af tredjemandens erklæring herom til udbyderen af markedspladsen.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+                <Stk id="iddb742fd0-00ae-4fbe-9146-bbd3469181c5">
+                  <Explicatus>Stk. 3.</Explicatus>
+                  <Exitus>
+                    <Linea>
+                      <Char>Oplysninger meddelt efter stk. 1, nr. 4, berører ikke et eventuelt ansvar, som udbyderen af onlinemarkedspladsen eller den erhvervsdrivende tredjemand har i forhold til aftalen i medfør af EU-retten eller national ret.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+                <Stk id="id42c64192-14e5-4859-ac83-1a6e031522d7">
+                  <Explicatus>Stk. 4.</Explicatus>
+                  <Exitus>
+                    <Linea>
+                      <Char>Oplysninger efter stk. 1, nr. 5, skal gives i et særligt afsnit af onlinegrænsefladen, der er direkte og let tilgængeligt fra den side, hvor tilbuddene præsenteres.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+              </Paragraf>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id46b47849-27ca-4890-9a82-a2bc3cff69f5">
+        <Explicatus>21.</Explicatus>
+        <Aendring id="idb5b31cc1-4075-46a1-96f8-24daa2113ee4">
+          <AendringDefinition id="id79a78597-0982-4047-b756-63cd845fca0b">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 9, stk. 1, 1. pkt., </Char>
+                <Char>ændres »nr. 9, 12 og 13« til: »nr. 11, 14 og 15«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="idc81f2fd8-6697-406e-a420-008996bf18f6">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id9482c3b8-9d87-4afe-9716-b375e5b27b84">
+        <Explicatus>22.</Explicatus>
+        <Aendring id="id85b8b71f-632e-4d8d-9d6a-32bba32e5f1b">
+          <AendringDefinition id="id407a375e-eb4d-4248-8938-8a5a7589ffed">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 9, stk. 3,</Char>
+                <Char> ændres »nr. 5 og 6« til: »nr. 6 og 7«, og »nr. 12« ændres til: »nr. 14«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id7088ff83-3d28-4418-9cb8-51526d69c7d3">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id681f22c7-d1c7-446c-a3c7-abca911018a2">
+        <Explicatus>23.</Explicatus>
+        <Aendring id="id55eea4de-0a91-4e31-978f-8f3a16a82685">
+          <AendringDefinition id="id84a3ad9a-60bf-49d4-8b59-84a7321db048">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 10, stk. 2, 2. pkt., </Char>
+                <Char>og</Char>
+                <Char formaChar="Italic"> § 13, stk. 2, 2. pkt., </Char>
+                <Char>indsættes efter »levering«: »mod betaling«, »kopi« ændres til: »bekræftelse«, og efter »§ 18, stk. 2, nr. 13« indsættes: », litra b«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id0561cae7-1f5e-4d41-87d4-4673274f6057">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id6579658c-65f8-43a4-a9f9-d92531f76ebd">
+        <Explicatus>24.</Explicatus>
+        <Aendring id="ideda26a69-d22c-4d74-b909-006b65a65ccf">
+          <AendringDefinition id="id8f06fce7-edcd-489b-b4bd-3c941a07b86b">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 10 </Char>
+                <Char>indsættes som </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">stk. 3:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id9f08044f-bb59-49dc-9d81-e60271ac20ae">
+            <AendringNyTekst>
+              <Stk id="ida959734f-d43c-4be9-b6b3-4f62439daa1e">
+                <Explicatus>Stk. 3.</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>Hvis en forbruger ønsker, at udførelsen af tjenesteydelser mod betaling skal påbegyndes inden fortrydelsesfristens udløb, skal den erhvervsdrivende kræve, at forbrugeren fremsætter en udtrykkelig anmodning herom på et varigt medium, og anmode forbrugeren om at anerkende, at når aftalen er fuldstændig opfyldt af den erhvervsdrivende, har forbrugeren ikke længere nogen fortrydelsesret.</Char>
+                  </Linea>
+                </Exitus>
+              </Stk>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id905a369e-4691-415d-b393-32d1f86af848">
+        <Explicatus>25.</Explicatus>
+        <Aendring id="id889870d1-2f47-4c10-93cc-ec59bdced8c6">
+          <AendringDefinition id="idb98d665a-6522-49ff-8877-b7dd88f58637">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 11, stk. 2, 1. pkt., </Char>
+                <Char>ændres »5, 6, 9 og 17« til :»6, 7, 11 og 19, med undtagelse af standardfortrydelsesformularen«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id7e20b93e-8f35-4bd6-8b0d-9b2a23e50214">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id7cbdabe6-fd3e-4a7a-b23d-6ae40362db0b">
+        <Explicatus>26.</Explicatus>
+        <Aendring id="idaf179e4a-6b47-4f8d-bcbd-d8188f148d1c">
+          <AendringDefinition id="id6d76179e-1fc2-4234-be88-41ce40007845">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 11, stk. 2, 2. pkt., </Char>
+                <Char>indsættes efter »stk. 1,«: »herunder standardfortrydelsesformularen,«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id6bcfb614-da11-43d8-a5c3-c86661c8a790">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id4fa24d35-f5ba-4731-94dd-b6a50a6ed462">
+        <Explicatus>27.</Explicatus>
+        <Aendring id="id8012e881-a511-4980-8b9a-668b374f6968">
+          <AendringDefinition id="id89f49d4d-8cc3-47e0-9c6b-7cd11bb9ea2e">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 12, stk. 1, 2. pkt., </Char>
+                <Char>ændres »5, 6, 17 og 18« til: »6, 7, 19 og 20«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id90c726ad-0f0f-410b-9bb5-498ccb567afc">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id07641ab9-a78c-4149-b77f-5d36232c23ee">
+        <Explicatus>28.</Explicatus>
+        <Aendring id="id3b31562c-6c33-4c55-a2e5-9537921ad65e">
+          <AendringDefinition id="id29674046-a3b4-44bf-9f99-282822aa659d">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 12 </Char>
+                <Char>indsættes efter stk. 1 som nyt stykke:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id975c2d57-3725-4fb8-bdf7-1fe0a2db98dc">
+            <AendringNyTekst>
+              <Stk id="id976f8c8c-d6fa-47ec-84c3-72e2fe56aaab">
+                <Explicatus>Stk. 2.</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>Indebærer afgivelsen af en bestilling efter stk. 1 aktivering af en knap eller en tilsvarende funktion, skal denne på let læselig måde være mærket »ordre med betalingsforpligtelse« el.lign.</Char>
+                  </Linea>
+                </Exitus>
+              </Stk>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+        <Rykningsklausul id="id644e535c-5e1e-4ad4-9fd1-45d771a345ce">
+          <Exitus>
+            <Linea>
+              <Char>Stk. 2 bliver herefter stk. 3.</Char>
+            </Linea>
+          </Exitus>
+        </Rykningsklausul>
+      </AendringsNummer>
+      <AendringsNummer id="ida58e87cf-a805-413a-9aa0-c42b2b3b0702">
+        <Explicatus>29.</Explicatus>
+        <Aendring id="idfed1e90c-8d52-4c34-ab0d-03a3bd56dde9">
+          <AendringDefinition id="id643d81bf-b387-4200-9fd3-b52cb181fefa">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 12, stk. 2, </Char>
+                <Char>der bliver stk. 3, indsættes efter »stk. 1«: »og 2«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="iddab31d5b-f1e4-4753-8ba7-a29144a66f8f">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id5cb8e3c8-4d2d-4e63-87d6-51f80b600e8f">
+        <Explicatus>30.</Explicatus>
+        <Aendring id="id8bb923b6-b716-44cf-a4ec-6b6e6eb642ef">
+          <AendringDefinition id="id3bba4d15-9106-4d0d-8aa6-e4dfefe15827">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 13 </Char>
+                <Char>indsættes som </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">stk. 3:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="ida2ea4457-1e8b-468e-ba29-347f42d504b2">
+            <AendringNyTekst>
+              <Stk id="id55dd5da3-ba96-4c14-90f6-26bd638098db">
+                <Explicatus>Stk. 3.</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>Hvis en forbruger ønsker, at udførelsen af tjenesteydelser mod betaling skal påbegyndes inden fortrydelsesfristens udløb, skal den erhvervsdrivende kræve, at forbrugeren fremsætter en udtrykkelig anmodning herom, og  anmode forbrugeren om at anerkende, at når aftalen er fuldstændig opfyldt af den erhvervsdrivende, har forbrugeren ikke længere nogen fortrydelsesret.</Char>
+                  </Linea>
+                </Exitus>
+              </Stk>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id2c9c9c00-8b9e-48b4-bcbe-d415063eb0de">
+        <Explicatus>31.</Explicatus>
+        <Aendring id="idd6c69abd-2ece-4f95-948c-9f0faf99660d">
+          <AendringDefinition id="ide8a5f16d-994e-4b1c-a450-a7f33edf8279">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 18, stk. 2, nr. 2, </Char>
+                <Char>indsættes efter »leveringen af tjenesteydelsen«: »ikke sker mod betaling eller«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id8064715a-d3b2-44af-8659-893e70e4ff2a">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idc19ae331-02c0-423a-bacf-6fe9296f15e8">
+        <Explicatus>32.</Explicatus>
+        <Aendring id="id18afb6d7-b3f2-45ae-be7b-40b7fa60788e">
+          <AendringDefinition id="id5c64aeb2-134b-4335-a1d8-538630b004ee">
+            <Exitus>
+              <Linea>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 18, stk. 2, nr. 13, </Char>
+                <Char>affattes således:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id72cb1622-2722-425b-84aa-841e0e679700" punktumEfterSlutcitationstegn="True">
+            <AendringNyTekst>
+              <Exitus id="id5aa10b39-3470-4f74-9b57-dbc68b66e8b3">
+                <Index>
+                  <Indentatio id="idea22b61c-72e0-411c-bd92-ec1a35b18d55" formaInd="Nummer">
+                    <Explicatus>13)</Explicatus>
+                    <Exitus>
+                      <Linea>
+                        <Char>levering af digitalt indhold, som ikke leveres på et fysisk medium, hvis</Char>
+                      </Linea>
+                    </Exitus>
+                    <Exitus id="id0f566422-d592-434f-9de5-60a778e7384e">
+                      <Index>
+                        <Indentatio id="id84e3b2a2-3c71-4ed6-9470-88e67ab3ebde" formaInd="Litra">
+                          <Explicatus>a)</Explicatus>
+                          <Exitus>
+                            <Linea>
+                              <Char>leveringen af det digitale indhold ikke sker mod betaling eller</Char>
+                            </Linea>
+                          </Exitus>
+                        </Indentatio>
+                        <Indentatio id="id50ae0718-62ee-4d20-8c35-ca8f1e4a31c2" formaInd="Litra">
+                          <Explicatus>b)</Explicatus>
+                          <Exitus>
+                            <Linea>
+                              <Char>udførelsen er påbegyndt med forbrugerens forudgående udtrykkelige samtykke og anerkendelse af, at vedkommende dermed mister sin fortrydelsesret, og den erhvervsdrivende har givet en bekræftelse i overensstemmelse med § 10, stk. 2, 2. pkt., eller § 13, stk. 2, 2. pkt.,</Char>
+                            </Linea>
+                          </Exitus>
+                        </Indentatio>
+                      </Index>
+                    </Exitus>
+                  </Indentatio>
+                </Index>
+              </Exitus>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idf8d2ed72-c98a-479f-9a73-843a5014c4a4">
+        <Explicatus>33.</Explicatus>
+        <Aendring id="id57683db8-c0c8-47e4-9e72-ee46a855d034">
+          <AendringDefinition id="idb4b69bdc-a4f7-412e-a303-2d31bbfbb7ec">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 18 </Char>
+                <Char>indsættes efter stk. 2 som nyt stykke:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id04faca36-0453-41fe-a31d-8b6627aefba2">
+            <AendringNyTekst>
+              <Stk id="idee209d06-818f-4852-9d55-de976c7658be">
+                <Explicatus>Stk. 3.</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>Kapitlet gælder dog for varer og ikkefinansielle tjenesteydelser, der leveres i forbindelse med en aftale efter stk. 2, nr. 8, og som ligger ud over, hvad forbrugeren specifikt har anmodet om, eller hvad der er nødvendigt for at udføre vedligeholdelsen eller reparationen.</Char>
+                  </Linea>
+                </Exitus>
+              </Stk>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+        <Rykningsklausul id="id838634ea-c8b7-44de-9924-6850902d3d8f">
+          <Exitus>
+            <Linea>
+              <Char>Stk. 3 bliver herefter stk. 4.</Char>
+            </Linea>
+          </Exitus>
+        </Rykningsklausul>
+      </AendringsNummer>
+      <AendringsNummer id="id9c6876e8-e639-4a0e-b84f-be9dc18f4e7f">
+        <Explicatus>34.</Explicatus>
+        <Aendring id="idad159089-bcdc-42b1-88f3-df8c82233b6b">
+          <AendringDefinition id="id138f3dc7-9890-4413-bb5a-f98f74e5d9b9">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 19, stk. 3, 1. pkt., </Char>
+                <Char>og </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">stk. 4, </Char>
+                <Char>og </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 24, stk. 5, 2. pkt., </Char>
+                <Char>ændres »nr. 9« til: »nr. 11«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id4c6fd5a5-afd0-42bb-b4e0-bbcebcd1a792">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id6e1e6b0b-86b0-4c2b-82bf-2cf3d770a27e">
+        <Explicatus>35.</Explicatus>
+        <Aendring id="id1ea16484-b609-4b34-b5b3-86047b9fb9b5">
+          <AendringDefinition id="id811d9898-6f8e-4d4f-959f-2eb8a0e67620">
+            <Exitus>
+              <Linea>
+                <Char>Efter § 22 indsættes:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id4f1feff5-1300-4362-aaba-1d370bf61b62">
+            <AendringNyTekst>
+              <Paragraf id="id8b978f38-7a97-484f-984b-822540d46b9e" localId="22a">
+                <Explicatus>§ 22 a.</Explicatus>
+                <Stk id="id38324f67-66c1-4f6f-956c-2ae4d441125b">
+                  <Exitus>
+                    <Linea>
+                      <Char>Ved tilbagetræden fra en aftale om levering af digitalt indhold eller en digital tjeneste skal den erhvervsdrivende</Char>
+                    </Linea>
+                  </Exitus>
+                  <Exitus id="id2008b8d1-1cd4-4522-b226-5cbe26bac2eb">
+                    <Index>
+                      <Indentatio id="id382d9140-2567-4f96-9010-5caff3278ef3" formaInd="Nummer">
+                        <Explicatus>1)</Explicatus>
+                        <Exitus>
+                          <Linea>
+                            <Char>opfylde de forpligtelser, der gælder i henhold til Europa-Parlamentets og Rådets forordning 2016/679/EU af 27. april 2016 om beskyttelse af fysiske personer i forbindelse med behandling af personoplysninger og om fri udveksling af sådanne oplysninger (databeskyttelsesforordningen), og</Char>
+                          </Linea>
+                        </Exitus>
+                      </Indentatio>
+                      <Indentatio id="id8f508b03-2fce-47bc-8a6f-bff3a7c7f0a0" formaInd="Nummer">
+                        <Explicatus>2)</Explicatus>
+                        <Exitus>
+                          <Linea>
+                            <Char>afholde sig fra at anvende nogen form for indhold, bortset fra personoplysninger, som forbrugeren har afgivet eller genereret ved brug af det digitale indhold eller den digitale tjeneste, undtagen hvis indholdet</Char>
+                          </Linea>
+                        </Exitus>
+                        <Exitus id="idc6aa5c7c-6f13-4d53-99bc-75ead11adfab">
+                          <Index>
+                            <Indentatio id="id25534089-cedd-4e48-b2c5-c78a16b2608b" formaInd="Litra">
+                              <Explicatus>a)</Explicatus>
+                              <Exitus>
+                                <Linea>
+                                  <Char>ikke kan anvendes uden for rammerne af det digitale indhold eller den digitale tjeneste,</Char>
+                                </Linea>
+                              </Exitus>
+                            </Indentatio>
+                            <Indentatio id="idf9e11744-3493-4b76-b016-79ff0ac95edb" formaInd="Litra">
+                              <Explicatus>b)</Explicatus>
+                              <Exitus>
+                                <Linea>
+                                  <Char>kun vedrører forbrugerens aktivitet i forbindelse med brug af det digitale indhold eller den digitale tjeneste,</Char>
+                                </Linea>
+                              </Exitus>
+                            </Indentatio>
+                            <Indentatio id="idb140e94a-c6c5-4698-bd29-c07b9121c418" formaInd="Litra">
+                              <Explicatus>c)</Explicatus>
+                              <Exitus>
+                                <Linea>
+                                  <Char>er blevet sammenlagt med andre oplysninger fra den erhvervsdrivende og ikke kan udskilles eller kun kan udskilles med en uforholdsmæssig stor indsats eller</Char>
+                                </Linea>
+                              </Exitus>
+                            </Indentatio>
+                            <Indentatio id="idb606a9ba-25a1-44c5-b7b5-51571d1a48e6" formaInd="Litra">
+                              <Explicatus>d)</Explicatus>
+                              <Exitus>
+                                <Linea>
+                                  <Char>er genereret af forbrugeren og andre i fællesskab og andre forbrugere fortsat kan gøre brug af indholdet.</Char>
+                                </Linea>
+                              </Exitus>
+                            </Indentatio>
+                          </Index>
+                        </Exitus>
+                      </Indentatio>
+                    </Index>
+                  </Exitus>
+                </Stk>
+                <Stk id="id0c6c7e8c-1324-46bf-a61b-a0269c35a5fd">
+                  <Explicatus>Stk. 2.</Explicatus>
+                  <Exitus>
+                    <Linea>
+                      <Char>Den erhvervsdrivende skal på forbrugerens anmodning stille ethvert indhold, der ikke er personoplysninger, og som forbrugeren har afgivet eller genereret ved brug af det digitale indhold eller den digitale tjeneste, til rådighed for forbrugeren, medmindre dette indhold er omfattet af stk. 1, nr. 2, litra a-c.</Char>
+                    </Linea>
+                    <Linea>
+                      <Char>Forbrugeren er berettiget til at downloade dette indhold gratis, uden hindringer fra den erhvervsdrivende, inden for en rimelig frist og i et almindeligt anvendt og maskinlæsbart format.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+                <Stk id="ida460614d-9211-4cba-b292-3f2cb6ce9faf">
+                  <Explicatus>Stk. 3.</Explicatus>
+                  <Exitus>
+                    <Linea>
+                      <Char>Den erhvervsdrivende kan forhindre forbrugerens fortsatte brug af det digitale indhold eller den digitale tjeneste, navnlig ved at gøre det digitale indhold eller den digitale tjeneste utilgængelig for forbrugeren eller ved at gøre forbrugerens konto inaktiv, uden at det berører forbrugerens rettigheder efter stk. 2.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+              </Paragraf>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id7f3babd2-cfd6-453c-aa32-4e0d0c618032">
+        <Explicatus>36.</Explicatus>
+        <Aendring id="idd054e44c-2eee-4783-80de-e28c726d6d2e">
+          <AendringDefinition id="id205da753-629f-44f2-94d6-b292f564e349">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 24, stk. 2, </Char>
+                <Char>ændres »nr. 12« til: »nr. 14«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id52e737a7-4aa1-4224-a36a-7b2b9fde5c6e">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id835bd705-a73e-42e3-a483-97a2a2f5755b">
+        <Explicatus>37.</Explicatus>
+        <Aendring id="idb7c27485-baf0-46af-bf5a-75eb53269e65">
+          <AendringDefinition id="idcc54ffda-7da8-4fef-b02b-f63eae125d93">
+            <Exitus>
+              <Linea>
+                <Char>Efter § 24 indsættes:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id5fe4e0d2-fe7d-46ce-8eb1-de9198e4dc1a">
+            <AendringNyTekst>
+              <Paragraf id="idb8a693da-9297-476d-b384-1a2fb62987fa" localId="24a">
+                <Explicatus>§ 24 a.</Explicatus>
+                <Stk id="id5f5f675f-7efb-490a-9aa0-e540a7ea0c0c">
+                  <Exitus>
+                    <Linea>
+                      <Char>Ved tilbagetræden fra en aftale om levering af digitalt indhold eller en digital tjeneste skal forbrugeren afholde sig fra at anvende det digitale indhold eller den digitale tjeneste og fra at stille det eller den til rådighed for tredjemand.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+              </Paragraf>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="ida53131bc-bad2-46c6-878d-f41f1ef85616">
+        <Explicatus>38.</Explicatus>
+        <Aendring id="id863f6387-12b9-4784-b09a-da1ed127e639">
+          <AendringDefinition id="id416a097e-a6aa-4193-9480-bc6977b3526a">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 25, stk. 1, nr. 1, </Char>
+                <Char>indsættes efter »udløb«: », jf. § 10, stk. 3, og § 13, stk. 3,«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="ideca28dda-439c-4a5d-94bc-cfc7e1a557bc">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id851641fd-8866-46c7-b1e6-8a212b69693a">
+        <Explicatus>39.</Explicatus>
+        <Aendring id="id7f5b3bdd-21c4-4296-99b3-8079ec2f407e">
+          <AendringDefinition id="ide79b02a2-24bb-4fd9-87fd-b361ae58ec20">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 25, stk. 1, nr. 2, </Char>
+                <Char>ændres »nr. 9 og 13« til: »nr. 11 og 15«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id3f284aa8-ea32-4736-ba5d-65412e2a6825">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id7e6eab82-a57d-401c-8270-3aaee59105a2">
+        <Explicatus>40.</Explicatus>
+        <Aendring id="id81aa5aa5-b296-444e-838d-6e624a945b33">
+          <AendringDefinition id="id130efad5-0f42-4bb5-82dc-89a4e71a0895">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 25, stk. 2</Char>
+                <Char>, indsættes som </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">2. pkt.:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id8b601ff4-d66e-46be-8cf7-780b12cc7589">
+            <AendringNyTekst>
+              <Exitus>
+                <Linea>
+                  <Char>Hvis den samlede pris, der er fastsat i aftalen, er urimelig høj, skal det beløb, som forbrugeren kan pålægges at betale efter stk. 1, beregnes på grundlag af markedsværdien af det leverede.</Char>
+                </Linea>
+              </Exitus>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id9e03a174-d8d3-4f23-97a6-f1a7db321e31">
+        <Explicatus>41.</Explicatus>
+        <Aendring id="id254e6850-a10b-4a48-a4da-7fa060e0fb67">
+          <AendringDefinition id="idcb0db12e-b5d8-44bc-a6cb-8e3c58eb3e5b">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 27, stk. 1, 1. pkt., </Char>
+                <Char>ændres »vedrørende« til: »om«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="idabea8982-8142-4717-9b1d-57156fb17943">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idf189db8c-2aab-4eb2-83c9-db56f01e0987">
+        <Explicatus>42.</Explicatus>
+        <Aendring id="idbc5fc46b-2029-4f11-8410-0f06ef610540">
+          <AendringDefinition id="id01d6c569-1a6d-4138-a906-cf8d5ea8ad80">
+            <Exitus>
+              <Linea>
+                <Char>Efter § 28 indsættes:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id998dc0d1-dc27-4d4b-8754-fda854a09312">
+            <AendringNyTekst>
+              <Paragraf id="id0711f922-ea16-4988-94a3-ed0c54ad0dad" localId="28a">
+                <Explicatus>§ 28 a.</Explicatus>
+                <Stk id="id396a9812-f6c8-43cb-839f-ed59c1bc7335">
+                  <Exitus>
+                    <Linea>
+                      <Char>Den erhvervsdrivende skal sikre, at opsigelse af en aftale om løbende levering af varer eller tjenesteydelser kan ske på samme medie eller tekniske platform, som aftalen er indgået på.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+              </Paragraf>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id7e9cc6ca-4750-4abb-ba27-62bf8d439e54">
+        <Explicatus>43.</Explicatus>
+        <Aendring id="idf6419939-b429-49c1-9e83-41a1f8358f10">
+          <AendringDefinition id="idbb97aaa3-f02f-49ce-9fcf-54344c75b4eb">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">overskriften </Char>
+                <Char>til kapitel 11 indsættes efter »ufravigelighed«: », tilsyn«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id512be219-94c5-413f-846a-15db9d982e7a">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="iddc9b0964-8fa5-4640-9a55-8752b1c92f86">
+        <Explicatus>44.</Explicatus>
+        <Aendring id="idc5d58673-8ad1-49ca-b0f3-3d65973682fe">
+          <AendringDefinition id="id6656a09e-c553-4dbf-a428-5f84c9143c90">
+            <Exitus>
+              <Linea>
+                <Char>Efter § 33 indsættes:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id9af19faf-8a75-41a3-890e-e4d34b11fa88">
+            <AendringNyTekst>
+              <Paragraf id="idfdea0575-a427-42b7-9ecb-e12439907c48" localId="33a">
+                <Explicatus>§ 33 a.</Explicatus>
+                <Stk id="id584a4419-23c1-490d-82d3-f9bfd7105e3e">
+                  <Exitus>
+                    <Linea>
+                      <Char>Forbrugerombudsmanden fører tilsyn med overholdelsen af loven.</Char>
+                    </Linea>
+                    <Linea>
+                      <Char>Tilsynet føres efter markedsføringslovens regler.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+              </Paragraf>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idded4a4f0-026e-45e7-aa90-8cbd38e8838d">
+        <Explicatus>45.</Explicatus>
+        <Aendring id="id0d2c401e-9452-42b5-b69a-9759654b78f4">
+          <AendringDefinition id="id7d854163-3bf3-4ef8-a5c1-87c568f56112">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 34, stk. 1, </Char>
+                <Char>ændres »§ 8, stk. 1, nr. 9, § 14, stk. 1, nr. 10, og § 28, stk. 3« til: »§ 8, stk. 1, nr. 1-5, 8-13 og 16-24, §§ 8 a, 10, 11 og 13, § 14, stk. 1, nr. 10, § 17, stk. 1, § 22 a og § 28, stk. 3, og opkrævning af betaling i strid med § 30 og § 31, stk. 1 og 3«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id04c3e9bc-1b12-4a3c-809f-2027aba7342b">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id31e550b6-0227-49f8-a8b0-3502faded10a">
+        <Explicatus>46.</Explicatus>
+        <Aendring id="id0e479200-f3c9-4025-a3a9-2621f543658d">
+          <AendringDefinition id="id37e940eb-1616-4875-928d-90812871ac27">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 34 </Char>
+                <Char>indsættes som </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">stk. 4:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id10f50587-183b-450b-b31a-58a562e5ac59">
+            <AendringNyTekst>
+              <Stk id="id9e8d0f1d-7c9d-400d-be96-aa3f4ee59ca8">
+                <Explicatus>Stk. 4.</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>Ved udmåling af bøde for overtrædelser efter stk. 1, der kan skade de kollektive interesser for forbrugere i mindst to EU-medlemsstater ud over Danmark, kan bøden maksimalt udgøre 4 pct. af den erhvervsdrivendes årlige omsætning i de berørte medlemsstater.</Char>
+                  </Linea>
+                  <Linea>
+                    <Char>Hvis oplysninger om den erhvervsdrivendes omsætning ikke er tilgængelige, kan bøden maksimalt udgøre 2 mio. euro.</Char>
+                  </Linea>
+                </Exitus>
+              </Stk>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="id952478e0-c7e6-4090-a2e5-7ca09a2b737d">
+        <Explicatus>47.</Explicatus>
+        <Aendring id="idd43a22e2-889b-4f82-ad34-fe743444aeaf">
+          <AendringDefinition id="ide2a0d220-dd71-4ea0-8f6e-894c693f2087">
+            <Exitus>
+              <Linea>
+                <Char>I lovens </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">bilag 1 </Char>
+                <Char>udgår i tredje afsnit under overskriften »Fortrydelsesret« », fax«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id0249912a-fe62-45e6-93b5-a59edd10e896">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idaee6fa76-3fb7-49ee-825a-2ba0b7226956">
+        <Explicatus>48.</Explicatus>
+        <Aendring id="id9ad02980-1558-43ca-bcec-486196deb19a">
+          <AendringDefinition id="idb0b8a024-47fc-408c-bb2a-b126340355de">
+            <Exitus>
+              <Linea>
+                <Char>I lovens </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">bilag 1 </Char>
+                <Char>affattes punkt 2 under overskriften »Instrukser med henblik på udfyldelse« således:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id36120547-8181-4041-81d7-ed1a84e0feb6">
+            <AendringNyTekst>
+              <Exitus>
+                <Linea>
+                  <Char>[2.</Char>
+                </Linea>
+                <Linea>
+                  <Char>] Indsæt Deres navn, fysiske adresse, telefonnummer og e-mailadresse.</Char>
+                </Linea>
+              </Exitus>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+      <AendringsNummer id="idcdd8fd8b-29c7-4713-bfa9-7a8a6b013f6d">
+        <Explicatus>49.</Explicatus>
+        <Aendring id="idec83b4be-8701-4d28-aca6-33c7ccbbda28">
+          <AendringDefinition id="ide7af31fe-e6c4-4252-a5b5-fc51600d0bca">
+            <Exitus>
+              <Linea>
+                <Char>I lovens </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">bilag 3 </Char>
+                <Char>udgår »og i givet fald faxnummer«.</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id098d7fe0-48c3-4617-b1e1-75c230dc279b">
+            <AendringNyTekst />
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+    </AendringCentreretParagraf>
+    <AendringCentreretParagraf id="id2fe2865f-97e4-4afb-8319-64f5be4783d6" localId="2">
+      <Explicatus>§ 2</Explicatus>
+      <Exitus>
+        <Linea>
+          <Char>I lov om aftaler og andre retshandler på formuerettens område, jf. lovbekendtgørelse nr. 193 af 2. marts 2016, foretages følgende ændringer:</Char>
+        </Linea>
+      </Exitus>
+      <AendringsNummer id="id34ca3c7e-e9b7-4c97-b6d4-b51351953839">
+        <Explicatus>1.</Explicatus>
+        <Aendring id="idee85a6e5-0c4a-480f-9ec4-a947390a9ecb">
+          <AendringDefinition id="id8f47f875-f445-480c-9361-9f3526e71276">
+            <Exitus>
+              <Linea>
+                <Char>I </Char>
+                <Char signiChar="AendringURN" formaChar="Italic">§ 38 c </Char>
+                <Char>indsættes efter stk. 1 som nyt stykke:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id32ca7d29-035b-4334-9460-425bfe8313b6">
+            <AendringNyTekst>
+              <Stk id="id13e3b451-097a-467e-bac2-9d8acc4d157f">
+                <Explicatus>Stk. 2.</Explicatus>
+                <Exitus>
+                  <Linea>
+                    <Char>Hvis et aftalevilkår, som er omfattet af stk. 1, 2. pkt., ikke har været genstand for individuel forhandling, kan vilkåret dog ikke ændres eller tilsidesættes delvis, men skal tilsidesættes helt.</Char>
+                  </Linea>
+                </Exitus>
+              </Stk>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+        <Rykningsklausul id="id19784c20-bbf0-4814-b47b-878583a7fc08">
+          <Exitus>
+            <Linea>
+              <Char>Stk. 2 bliver herefter stk. 3.</Char>
+            </Linea>
+          </Exitus>
+        </Rykningsklausul>
+      </AendringsNummer>
+      <AendringsNummer id="idf2984197-24a0-4c5c-a951-21d2ba8a4cb5">
+        <Explicatus>2.</Explicatus>
+        <Aendring id="idd960ba96-d199-4412-930e-81e36f5a3794">
+          <AendringDefinition id="ide5c06639-e1d0-4cf9-a5b9-cf809830574c">
+            <Exitus>
+              <Linea>
+                <Char>Efter § 38 d indsættes før overskriften før § 39:</Char>
+              </Linea>
+            </Exitus>
+          </AendringDefinition>
+          <AendringAktion id="id98a21d37-ea72-4ab2-ab06-27fb1dfb831b">
+            <AendringNyTekst>
+              <Paragraf id="id6a8fe9f8-b43d-493a-97fc-7e732347720d" localId="38e">
+                <Explicatus>§ 38 e.</Explicatus>
+                <Stk id="idd8b968af-79e5-4508-b8ad-6a69b06aaa78">
+                  <Exitus>
+                    <Linea>
+                      <Char>Forbrugerombudsmanden fører tilsyn med, om erhvervsdrivende anvender urimelige aftalevilkår, og med overholdelsen af § 38 b, stk. 2.</Char>
+                    </Linea>
+                    <Linea>
+                      <Char>Tilsynet føres efter markedsføringslovens regler.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+              </Paragraf>
+              <Paragraf id="ide0b3fcab-0f23-4380-b34a-59229de0e95a" localId="38f">
+                <Explicatus>§ 38 f. </Explicatus>
+                <Stk id="idc4579993-2653-410c-9686-dc4c02a4628d">
+                  <Exitus>
+                    <Linea>
+                      <Char>Justitsministeren kan efter indstilling fra Forbrugerombudsmanden fastsætte regler om, at erhvervsdrivende, som anvender nærmere angivne standardvilkår, som er klart urimelige at anvende i forbrugeraftaleforhold, jf. aftalelovens § 38 c, straffes med bøde</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+                <Stk id="idf9426a63-8de8-4924-b37e-5f59fccbec95">
+                  <Explicatus>Stk. 2.</Explicatus>
+                  <Exitus>
+                    <Linea>
+                      <Char>Justitsministeren kan endvidere fastsætte regler om, at bøder efter stk. 1 for overtrædelser, der kan skade de kollektive interesser for forbrugere i mindst to EU-medlemsstater ud over Danmark, maksimalt kan udgøre 4 pct. af den erhvervsdrivendes årlige omsætning i den eller de berørte medlemsstater.</Char>
+                    </Linea>
+                    <Linea>
+                      <Char>Hvis oplysninger om den erhvervsdrivendes omsætning ikke er tilgængelige, kan bøden maksimalt udgøre 2 mio. euro.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+                <Stk id="id4041dbd4-e90a-4198-937c-04c9e4d10efb">
+                  <Explicatus>Stk. 3.</Explicatus>
+                  <Exitus>
+                    <Linea>
+                      <Char>Justitsministeren kan desuden fastsætte regler om, at der kan pålægges selskaber m.v. (juridiske personer) strafansvar efter reglerne i straffelovens 5. kapitel.</Char>
+                    </Linea>
+                  </Exitus>
+                </Stk>
+              </Paragraf>
+            </AendringNyTekst>
+          </AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+    </AendringCentreretParagraf>
+    <IkraftCentreretParagraf id="id0c320805-8210-4cbc-90a7-d6083dbb7aa4" localId="3">
+      <Explicatus>§ 3</Explicatus>
+      <Stk id="iddb96aaef-51da-41b9-bf87-d24e3acf9072">
+        <Exitus>
+          <Linea>
+            <Char>Loven træder i kraft den 28. maj 2022.</Char>
+          </Linea>
+        </Exitus>
+      </Stk>
+    </IkraftCentreretParagraf>
+    <IkraftCentreretParagraf id="id5d61563e-2d17-4143-bcbc-ab3676dd1e71" localId="4">
+      <Explicatus>§ 4</Explicatus>
+      <Stk id="idd11d9de6-2030-4abd-bc6b-fa3fddca5b4b">
+        <Explicatus>Stk. 1.</Explicatus>
+        <Exitus>
+          <Linea>
+            <Char>Loven gælder ikke for Færøerne og Grønland.</Char>
+          </Linea>
+        </Exitus>
+      </Stk>
+      <Stk id="id2e29c04a-4647-478a-92f0-daebd0b726ed">
+        <Explicatus>Stk. 2.</Explicatus>
+        <Exitus>
+          <Linea>
+            <Char>Loven kan ved kongelig anordning helt eller delvis sættes i kraft for Grønland med de ændringer, som de grønlandske forhold tilsiger.</Char>
+          </Linea>
+        </Exitus>
+      </Stk>
+    </IkraftCentreretParagraf>
+  </DokumentIndhold>
+  <UnderskriftGruppe id="id9fc88784-c104-423a-a157-879e47cd103a">
+    <UnderskriftStedDato id="idd94b7d14-574b-4f0a-8c5a-e53ec8fc7b9b" />
+    <Segl>
+      <Linea>
+        <Char>Under Vor Kongelige Hånd og Segl</Char>
+      </Linea>
+    </Segl>
+    <Underskriver id="id44eaf351-3489-4633-afb5-e818ef6bd86f" />
+  </UnderskriftGruppe>
+</Dokument>

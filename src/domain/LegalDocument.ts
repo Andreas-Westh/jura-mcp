@@ -6,10 +6,15 @@ export enum DocumentStatus {
   Superseded = "superseded",
 }
 
-/** A change announced after this text was consolidated, so the text does not contain it. */
+/**
+ * A document announced after this text was consolidated, so the text does not contain it.
+ * It is an amending act, a new act, or a newer consolidation of the same statute.
+ */
 export interface LaterChange {
   announcedOn: string;
   title: string;
+  /** The ELI of the document. Absent when Retsinformation gives no Lovtidende A number. */
+  identifier?: string;
 }
 
 export interface Paragraph {

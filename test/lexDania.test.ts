@@ -2,7 +2,10 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { DocumentStatus } from "../src/domain/LegalDocument.js";
 import { LegalSource } from "../src/domain/Provenance.js";
-import { parseLexDania } from "../src/infrastructure/retsinformation/lexDania.js";
+import {
+  parseLexDania,
+  parseLexDaniaAmendment,
+} from "../src/infrastructure/retsinformation/lexDania.js";
 
 const PROVENANCE = {
   source: LegalSource.Retsinformation,
@@ -20,8 +23,12 @@ const XML = `<?xml version="1.0" encoding="utf-8"?>
     <Ministry>Justitsministeriet</Ministry>
     <Status>Valid</Status>
     <EndDate>2021-11-28</EndDate>
+    <Ref_Accn>A20210215830</Ref_Accn>
     <Ref_Af>2021-11-27</Ref_Af>
     <Ref_Text>Lov om ændring af testloven</Ref_Text>
+    <Ref_Accn>B20250009405</Ref_Accn>
+    <Ref_Af>2025-03-01</Ref_Af>
+    <Ref_Text>Bekendtgørelse i Lovtidende B</Ref_Text>
   </Meta>
   <DokumentIndhold>
     <Bog>
@@ -65,7 +72,16 @@ test("parses a statute and leaves the commencement provisions out", () => {
   assert.equal(document.status, DocumentStatus.InForce);
   assert.equal(document.currentUntil, "2021-11-28");
   assert.deepEqual(document.laterChanges, [
-    { announcedOn: "2021-11-27", title: "Lov om ændring af testloven" },
+    {
+      announcedOn: "2021-11-27",
+      title: "Lov om ændring af testloven",
+      identifier: "eli/lta/2021/2158",
+    },
+    {
+      announcedOn: "2025-03-01",
+      title: "Bekendtgørelse i Lovtidende B",
+      identifier: undefined,
+    },
   ]);
 
   assert.deepEqual(
@@ -86,4 +102,76 @@ test("parses a statute and leaves the commencement provisions out", () => {
       paragraphs: "1..9a",
     },
   ]);
+});
+
+const AMENDMENT_PROVENANCE = {
+  ...PROVENANCE,
+  identifier: "eli/lta/2024/1669",
+  url: "https://www.retsinformation.dk/eli/lta/2024/1669",
+};
+
+/** The shape of lov nr. 1669 af 2024, cut down to one change with a renumbering. */
+const AMENDMENT_XML = `<?xml version="1.0" encoding="utf-8"?>
+<Dokument>
+  <Meta>
+    <DocumentTitle>Lov om ændring af testloven</DocumentTitle>
+    <Ministry>Justitsministeriet</Ministry>
+  </Meta>
+  <DokumentIndhold>
+    <AendringCentreretParagraf>
+      <Explicatus>§ 1</Explicatus>
+      <Rubrica><Linea><Char>Justitsministeriet</Char></Linea></Rubrica>
+      <Exitus><Linea><Char>I testloven foretages følgende ændringer:</Char></Linea></Exitus>
+      <AendringsNummer>
+        <Explicatus>1.</Explicatus>
+        <Aendring>
+          <AendringDefinition><Exitus><Linea><Char>I § 3 indsættes før nr. 1 som nyt nummer:</Char></Linea></Exitus></AendringDefinition>
+          <AendringAktion><AendringNyTekst><Exitus><Linea><Char>1) Varer.</Char></Linea></Exitus></AendringNyTekst></AendringAktion>
+        </Aendring>
+        <Rykningsklausul><Exitus><Linea><Char>Nr. 1-6 bliver herefter nr. 2-7.</Char></Linea></Exitus></Rykningsklausul>
+      </AendringsNummer>
+      <AendringsNummer>
+        <Explicatus>2.</Explicatus>
+        <Aendring>
+          <AendringDefinition><Exitus><Linea><Char>I § 8 ændres »nr. 3« til: »nr. 4«.</Char></Linea></Exitus></AendringDefinition>
+          <AendringAktion><AendringNyTekst /></AendringAktion>
+        </Aendring>
+      </AendringsNummer>
+    </AendringCentreretParagraf>
+    <IkraftCentreretParagraf>
+      <Explicatus>§ 2</Explicatus>
+      <Rubrica><Linea><Char>Ikrafttrædelse</Char></Linea></Rubrica>
+      <Stk><Exitus><Linea><Char>Loven træder i kraft den 1. januar 2025.</Char></Linea></Exitus></Stk>
+    </IkraftCentreretParagraf>
+  </DokumentIndhold>
+</Dokument>`;
+
+test("parses an amending act with its titles and renumbering", () => {
+  const amendment = parseLexDaniaAmendment(AMENDMENT_XML, AMENDMENT_PROVENANCE);
+
+  assert.deepEqual(amendment.paragraphs, [
+    {
+      number: "1",
+      heading: "§ 1",
+      text: [
+        "Justitsministeriet — I testloven foretages følgende ændringer:",
+        "1. I § 3 indsættes før nr. 1 som nyt nummer: »1) Varer.« Nr. 1-6 bliver herefter nr. 2-7.",
+        "2. I § 8 ændres »nr. 3« til: »nr. 4«.",
+      ].join("\n"),
+    },
+    {
+      number: "2",
+      heading: "§ 2",
+      text: "Ikrafttrædelse — Loven træder i kraft den 1. januar 2025.",
+    },
+  ]);
+});
+
+test("an act without published text is refused with the page to open", () => {
+  const xml = `<Dokument><Meta><DocumentTitle>Lov om ændring</DocumentTitle><Ministry>Justitsministeriet</Ministry></Meta></Dokument>`;
+
+  assert.throws(() => parseLexDaniaAmendment(xml, AMENDMENT_PROVENANCE), {
+    message:
+      "Cannot read eli/lta/2024/1669. Retsinformation has no text for it. Open https://www.retsinformation.dk/eli/lta/2024/1669 to read it.",
+  });
 });

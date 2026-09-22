@@ -7,6 +7,7 @@ import {
   StreamableHTTPClientTransport,
 } from "@modelcontextprotocol/client";
 import nock from "nock";
+import { z } from "zod";
 import { createHttpServer } from "../src/httpServer.js";
 
 const fixture = (name: string): string =>
@@ -14,6 +15,7 @@ const fixture = (name: string): string =>
 
 const SEARCH_RESPONSE = fixture("search-aftaleloven.json");
 const DOCUMENT_XML = fixture("aftaleloven.xml");
+const AMENDMENT_XML = fixture("amendment-2021-2158.xml");
 const RETSINFORMATION = "https://www.retsinformation.dk";
 
 afterEach(() => nock.cleanAll());
@@ -26,6 +28,9 @@ const mockRetsinformation = (): void => {
   nock(RETSINFORMATION)
     .get("/eli/lta/2016/193/xml")
     .reply(200, DOCUMENT_XML, { "content-type": "application/xml" });
+  nock(RETSINFORMATION)
+    .get("/eli/lta/2021/2158/xml")
+    .reply(200, AMENDMENT_XML, { "content-type": "application/xml" });
 };
 
 const withClient = async (
@@ -54,6 +59,7 @@ test("every tool advertises an output schema, so its shape is visible before it 
     const { tools } = await client.listTools();
     assert.deepEqual(tools.map((tool) => tool.name).sort(), [
       "find_statute",
+      "read_amendment",
       "read_statute",
     ]);
     assert.ok(tools.every((tool) => tool.outputSchema));
@@ -87,7 +93,7 @@ test("find_statute maps a search hit to a statute with a citable provenance", as
   });
 });
 
-test("read_statute warns that the text predates its own listed changes", async () => {
+test("read_statute warns that the text predates its own listed changes, and names each change to read", async () => {
   mockRetsinformation();
   await withClient(async (client) => {
     const { structuredContent } = await client.callTool({
@@ -99,8 +105,67 @@ test("read_statute warns that the text predates its own listed changes", async (
       status: "in-force",
       currentUntil: "2021-11-28",
       warning:
-        "WARNING: this text was consolidated up to 2021-11-28. It does not contain the changes listed below. Read the changing act to see them.",
+        "WARNING: this text was consolidated up to 2021-11-28. It does not contain the changes listed below. Read each change by its identifier.",
+      laterChanges: [
+        { announcedOn: "2021-11-27", identifier: "eli/lta/2021/2158" },
+      ],
     });
+  });
+});
+
+test("read_amendment outlines which statute each § changes", async () => {
+  mockRetsinformation();
+  await withClient(async (client) => {
+    const { structuredContent } = await client.callTool({
+      name: "read_amendment",
+      arguments: { identifier: "eli/lta/2021/2158" },
+    });
+
+    assert.partialDeepStrictEqual(structuredContent, {
+      ministry: "Justitsministeriet",
+      outline: [
+        {
+          number: "1",
+          opening:
+            "I lov om forbrugeraftaler, jf. lovbekendtgørelse nr. 1457 af 17. december 2013, som ændret ved § 160 i lov nr. 652 af 8. juni 2017 og § 44 i lov nr. 1666 af 26. december 2017, foretages følgende ændringer:",
+        },
+        {
+          number: "2",
+          opening:
+            "I lov om aftaler og andre retshandler på formuerettens område, jf. lovbekendtgørelse nr. 193 af 2. marts 2016, foretages følgende ændringer:",
+        },
+        { number: "3", opening: "Loven træder i kraft den 28. maj 2022." },
+        {
+          number: "4",
+          opening: "Stk. 1. Loven gælder ikke for Færøerne og Grønland.",
+        },
+      ],
+      paragraphs: [],
+    });
+  });
+});
+
+test("read_amendment reports each change as the act prints it, new text in »«", async () => {
+  mockRetsinformation();
+  await withClient(async (client) => {
+    const { structuredContent } = await client.callTool({
+      name: "read_amendment",
+      arguments: { identifier: "eli/lta/2021/2158", paragraphs: "2" },
+    });
+
+    const {
+      paragraphs: [paragraph],
+    } = z
+      .object({
+        paragraphs: z.array(z.object({ number: z.string(), text: z.string() })),
+      })
+      .parse(structuredContent);
+    assert.ok(paragraph);
+    assert.equal(paragraph.number, "2");
+    assert.deepEqual(paragraph.text.split("\n").slice(0, 2), [
+      "I lov om aftaler og andre retshandler på formuerettens område, jf. lovbekendtgørelse nr. 193 af 2. marts 2016, foretages følgende ændringer:",
+      "1. I § 38 c indsættes efter stk. 1 som nyt stykke: »Stk. 2. Hvis et aftalevilkår, som er omfattet af stk. 1, 2. pkt., ikke har været genstand for individuel forhandling, kan vilkåret dog ikke ændres eller tilsidesættes delvis, men skal tilsidesættes helt.« Stk. 2 bliver herefter stk. 3.",
+    ]);
   });
 });
 
