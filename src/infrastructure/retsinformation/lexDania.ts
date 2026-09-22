@@ -1,7 +1,7 @@
 import { XMLParser } from "fast-xml-parser";
+import type { Amendment } from "../../domain/Amendment.js";
 import {
   DocumentStatus,
-  type LaterChange,
   type LegalDocument,
   type Paragraph,
   type Section,
@@ -15,8 +15,6 @@ import type { Provenance } from "../../domain/Provenance.js";
  */
 const REPEATED_ELEMENTS = new Set([
   "Meta",
-  "Ref_Af",
-  "Ref_Text",
   "Bog",
   "Afsnit",
   "Kapitel",
@@ -25,6 +23,8 @@ const REPEATED_ELEMENTS = new Set([
   "Stk",
   "Rubrica",
   "Linea",
+  "AendringCentreretParagraf",
+  "IkraftCentreretParagraf",
 ]);
 
 const parser = new XMLParser({
@@ -40,6 +40,7 @@ const STATUS_BY_LEX_DANIA_STATUS: Record<string, DocumentStatus> = {
 
 /** A footnote interrupts the sentence it hangs on, so it is left out of the text. */
 const FOOTNOTE_ELEMENT = "Nota";
+const NEW_TEXT_ELEMENT = "AendringNyTekst";
 
 interface Container {
   Explicatus?: string;
@@ -50,6 +51,12 @@ interface Container {
   Paragraf?: { Explicatus?: string; Stk?: unknown[] }[];
 }
 
+interface AmendmentParagraph {
+  Explicatus?: string;
+  Rubrica?: unknown[];
+  [part: string]: unknown;
+}
+
 /** Body text is mixed content spread over Linea and Char, so it is collected. */
 const textOf = (node: unknown): string => {
   if (typeof node === "string") return node;
@@ -57,7 +64,9 @@ const textOf = (node: unknown): string => {
   if (node && typeof node === "object") {
     return Object.entries(node)
       .filter(([name]) => name !== FOOTNOTE_ELEMENT)
-      .map(([, value]) => textOf(value))
+      .map(([name, value]) =>
+        name === NEW_TEXT_ELEMENT ? quoted(textOf(value)) : textOf(value)
+      )
       .join(" ");
   }
   return "";
@@ -65,6 +74,11 @@ const textOf = (node: unknown): string => {
 
 const collapseSpaces = (text: string): string =>
   text.replace(/\s+/g, " ").trim();
+
+const quoted = (text: string): string => {
+  const collapsed = collapseSpaces(text);
+  return collapsed && `»${collapsed}«`;
+};
 
 export const toParagraphNumber = (heading: string): string =>
   heading.replace(/[§.\s]/g, "").toLowerCase();
@@ -82,6 +96,28 @@ const toParagraph = (
     text: (source.Stk ?? [])
       .map((stk) => collapseSpaces(textOf(stk)))
       .join("\n"),
+  };
+};
+
+const toAmendmentParagraph = ({
+  Explicatus: heading,
+  Rubrica: title,
+  ...parts
+}: AmendmentParagraph): Paragraph => {
+  if (!heading) {
+    throw new Error("LexDania paragraph without a § number");
+  }
+  const [first = "", ...rest] = Object.values(parts)
+    .flat()
+    .map((part) => collapseSpaces(textOf(part)))
+    .filter(Boolean);
+  return {
+    number: toParagraphNumber(heading),
+    heading: collapseSpaces(heading),
+    text: [
+      title ? `${collapseSpaces(textOf(title))} — ${first}` : first,
+      ...rest,
+    ].join("\n"),
   };
 };
 
@@ -132,15 +168,6 @@ const walk = (
   return { sections: [section, ...sections], paragraphs };
 };
 
-const toLaterChanges = (meta: {
-  Ref_Af?: string[];
-  Ref_Text?: string[];
-}): LaterChange[] =>
-  (meta.Ref_Af ?? []).map((announcedOn, index) => ({
-    announcedOn,
-    title: collapseSpaces(meta.Ref_Text?.[index] ?? ""),
-  }));
-
 /**
  * An amending act nests its new text inside change instructions instead of a
  * `Bog`, so only consolidated statutes are read.
@@ -152,7 +179,7 @@ const toLaterChanges = (meta: {
 export const parseLexDania = (
   xml: string,
   provenance: Provenance
-): LegalDocument => {
+): Omit<LegalDocument, "laterChanges"> & { uniqueDocumentId: string } => {
   const { Dokument: document } = parser.parse(xml);
   const meta = document.Meta[0];
 
@@ -176,13 +203,43 @@ export const parseLexDania = (
     ministry: meta.Ministry,
     status,
     currentUntil: meta.EndDate || undefined,
-    laterChanges: toLaterChanges(meta),
     sections: body.flatMap(
       (result: { sections: Section[] }) => result.sections
     ),
     paragraphs: body.flatMap(
       (result: { paragraphs: Paragraph[] }) => result.paragraphs
     ),
+    uniqueDocumentId: meta.UniqueDocumentId,
+    provenance,
+  };
+};
+
+export const parseLexDaniaAmendment = (
+  xml: string,
+  provenance: Provenance
+): Amendment => {
+  const { Dokument: document } = parser.parse(xml);
+  const body = document.DokumentIndhold;
+  if (!body) {
+    throw new Error(
+      `Cannot read ${provenance.identifier}. Retsinformation has no text for it. Open ${provenance.url} to read it.`
+    );
+  }
+  if (!body.AendringCentreretParagraf) {
+    throw new Error(
+      `Cannot read ${provenance.identifier}. It is not an amending act.`
+    );
+  }
+
+  const meta = document.Meta[0];
+  const paragraphs: AmendmentParagraph[] = [
+    ...body.AendringCentreretParagraf,
+    ...(body.IkraftCentreretParagraf ?? []),
+  ];
+  return {
+    title: collapseSpaces(meta.DocumentTitle),
+    ministry: meta.Ministry,
+    paragraphs: paragraphs.map(toAmendmentParagraph),
     provenance,
   };
 };

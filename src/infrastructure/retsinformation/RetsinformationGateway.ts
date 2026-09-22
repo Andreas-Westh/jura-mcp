@@ -1,8 +1,9 @@
 import { z } from "zod";
-import { LegalSource } from "../../domain/Provenance.js";
+import type { Amendment } from "../../domain/Amendment.js";
+import { LegalSource, type Provenance } from "../../domain/Provenance.js";
 import { StatuteKind, type Statute } from "../../domain/Statute.js";
-import type { LegalDocument } from "../../domain/LegalDocument.js";
-import { parseLexDania } from "./lexDania.js";
+import type { LaterChange, LegalDocument } from "../../domain/LegalDocument.js";
+import { parseLexDania, parseLexDaniaAmendment } from "./lexDania.js";
 
 const BASE_URL = "https://www.retsinformation.dk";
 const MAX_RESULTS = 10;
@@ -22,7 +23,7 @@ const STATUTE_KIND_BY_ELI_CODE: Record<string, StatuteKind> = {
   BEKC: StatuteKind.AmendingExecutiveOrder,
 };
 
-/** The search endpoint is undocumented, so its response is parsed rather than trusted. */
+/** The search and references endpoints are undocumented, so their responses are parsed rather than trusted. */
 const SEARCH_DOCUMENT_SCHEMA = z.object({
   shortName: z.string(),
   title: z.string(),
@@ -39,8 +40,26 @@ const SEARCH_RESPONSE_SCHEMA = z.object({
 
 type SearchDocument = z.infer<typeof SEARCH_DOCUMENT_SCHEMA>;
 
+const REFERENCES_RESPONSE_SCHEMA = z.object({
+  referenceGroups: z.array(
+    z.object({
+      header: z.string(),
+      references: z.array(
+        z.object({
+          title: z.string(),
+          eliPath: z.string(),
+          paragraph: z.number().optional(),
+          offentliggoerelsesDato: z.string(),
+        })
+      ),
+    })
+  ),
+});
+
+const LATER_CHANGES_HEADER = "Senere ændringer til forskriften";
+
 const toIsoDate = (danishDate: string): string => {
-  const [day, month, year] = danishDate.split("/");
+  const [day, month, year] = danishDate.split(/[/-]/);
   if (!day || !month || !year) {
     throw new Error(`Unexpected Retsinformation date: ${danishDate}`);
   }
@@ -90,10 +109,9 @@ export const findStatutes = async (query: string): Promise<Statute[]> => {
     .map((document) => toStatute(document, retrievedAt));
 };
 
-/** The text is the version consolidated at publication. Later changes are not applied to it. */
-export const readStatute = async (
+const fetchLexDania = async (
   identifier: string
-): Promise<LegalDocument> => {
+): Promise<{ xml: string; provenance: Provenance }> => {
   const url = `${BASE_URL}/${identifier}`;
   const response = await fetch(`${url}/xml`, {
     headers: { accept: "application/xml" },
@@ -104,10 +122,62 @@ export const readStatute = async (
     );
   }
 
-  return parseLexDania(await response.text(), {
-    source: LegalSource.Retsinformation,
-    identifier,
-    url,
-    retrievedAt: new Date().toISOString(),
-  });
+  return {
+    xml: await response.text(),
+    provenance: {
+      source: LegalSource.Retsinformation,
+      identifier,
+      url,
+      retrievedAt: new Date().toISOString(),
+    },
+  };
+};
+
+const fetchLaterChanges = async (
+  uniqueDocumentId: string
+): Promise<LaterChange[]> => {
+  const response = await fetch(
+    `${BASE_URL}/api/document/${uniqueDocumentId}/references/0`,
+    { headers: { accept: "application/json" } }
+  );
+  if (!response.ok) {
+    throw new Error(
+      `Retsinformation references for document ${uniqueDocumentId} failed with ${response.status}`
+    );
+  }
+
+  const { referenceGroups } = REFERENCES_RESPONSE_SCHEMA.parse(
+    await response.json()
+  );
+  const laterChanges = referenceGroups.find(
+    (group) => group.header === LATER_CHANGES_HEADER
+  );
+  if (!laterChanges) {
+    throw new Error(
+      `Retsinformation references for document ${uniqueDocumentId} have no "${LATER_CHANGES_HEADER}" group`
+    );
+  }
+  return laterChanges.references.map((reference) => ({
+    announcedOn: toIsoDate(reference.offentliggoerelsesDato),
+    title: reference.title,
+    identifier: reference.eliPath.replace(/^\//, ""),
+    changingParagraph: reference.paragraph?.toString(),
+  }));
+};
+
+/** The text is the version consolidated at publication. Later changes are not applied to it. */
+export const readStatute = async (
+  identifier: string
+): Promise<LegalDocument> => {
+  const { xml, provenance } = await fetchLexDania(identifier);
+  const { uniqueDocumentId, ...document } = parseLexDania(xml, provenance);
+  return {
+    ...document,
+    laterChanges: await fetchLaterChanges(uniqueDocumentId),
+  };
+};
+
+export const readAmendment = async (identifier: string): Promise<Amendment> => {
+  const { xml, provenance } = await fetchLexDania(identifier);
+  return parseLexDaniaAmendment(xml, provenance);
 };

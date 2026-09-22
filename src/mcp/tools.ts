@@ -1,5 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/server";
 import { z } from "zod";
+import type { Amendment } from "../domain/Amendment.js";
 import {
   DocumentStatus,
   type LegalDocument,
@@ -9,6 +10,7 @@ import { LegalSource } from "../domain/Provenance.js";
 import { StatuteKind, type Statute } from "../domain/Statute.js";
 import {
   findStatutes,
+  readAmendment,
   readStatute,
 } from "../infrastructure/retsinformation/RetsinformationGateway.js";
 import { toParagraphNumber } from "../infrastructure/retsinformation/lexDania.js";
@@ -48,6 +50,12 @@ const formatStatutes = (statutes: Statute[]): string =>
 
 const MAX_CHARACTERS = 12_000;
 
+const PARAGRAPH_SCHEMA = z.object({
+  number: z.string(),
+  heading: z.string(),
+  text: z.string(),
+});
+
 const DOCUMENT_SCHEMA = z.object({
   title: z.string(),
   popularTitle: z.string().optional(),
@@ -56,7 +64,12 @@ const DOCUMENT_SCHEMA = z.object({
   currentUntil: z.string().optional(),
   warning: z.string().optional(),
   laterChanges: z.array(
-    z.object({ announcedOn: z.string(), title: z.string() })
+    z.object({
+      announcedOn: z.string(),
+      title: z.string(),
+      identifier: z.string(),
+      changingParagraph: z.string().optional(),
+    })
   ),
   sections: z.array(
     z.object({
@@ -65,9 +78,7 @@ const DOCUMENT_SCHEMA = z.object({
       paragraphs: z.string(),
     })
   ),
-  paragraphs: z.array(
-    z.object({ number: z.string(), heading: z.string(), text: z.string() })
-  ),
+  paragraphs: z.array(PARAGRAPH_SCHEMA),
   omittedParagraphs: z.number().optional(),
   provenance: PROVENANCE_SCHEMA,
 });
@@ -84,7 +95,7 @@ const warnAboutAge = (document: LegalDocument): string | undefined => {
     document.currentUntil &&
     document.currentUntil < new Date().toISOString().slice(0, 10)
   ) {
-    return `WARNING: this text was consolidated up to ${document.currentUntil}. It does not contain the changes listed below. Read the changing act to see them.`;
+    return `WARNING: this text was consolidated up to ${document.currentUntil}. It does not contain the changes listed below. Read each change by its identifier.`;
   }
   return undefined;
 };
@@ -97,7 +108,8 @@ const formatOutline = (document: LegalDocument): string =>
     warnAboutAge(document),
     document.laterChanges.length > 0 ? "\nLater changes:" : undefined,
     ...document.laterChanges.map(
-      (change) => `  · ${change.announcedOn} ${change.title}`
+      ({ announcedOn, identifier, changingParagraph, title }) =>
+        `  · ${announcedOn} ${identifier}${changingParagraph ? ` § ${changingParagraph}` : ""} ${title}`
     ),
     "\nOutline — call again with the § numbers you need:",
     ...document.sections.map(
@@ -146,6 +158,64 @@ const selectParagraphs = (
   });
 };
 
+const readSelection = (
+  paragraphs: Paragraph[],
+  selection: string
+): { text: string; paragraphs: Paragraph[]; omittedParagraphs?: number } => {
+  const selected = selectParagraphs(paragraphs, selection);
+  const shown = withinBudget(selected);
+  const omitted = selected.slice(shown.length);
+  if (omitted.length === 0) {
+    return { text: formatParagraphs(shown), paragraphs: shown };
+  }
+  return {
+    text: `${formatParagraphs(shown)}\n\n(${omitted.length} more \u00a7\u00a7 left out, from ${omitted[0]!.heading} Ask for a smaller range.)`,
+    paragraphs: shown,
+    omittedParagraphs: omitted.length,
+  };
+};
+
+const PARAGRAPHS_INPUT = z
+  .string()
+  .max(100)
+  .optional()
+  .describe(
+    'Which \u00a7 to read. For example "36", "38..38c" or "1,9a". ' +
+      "A range uses two dots, because a \u00a7 number can hold a hyphen. " +
+      "Leave it out to get the outline."
+  );
+
+const AMENDMENT_SCHEMA = z.object({
+  title: z.string(),
+  ministry: z.string(),
+  outline: z.array(z.object({ number: z.string(), opening: z.string() })),
+  paragraphs: z.array(PARAGRAPH_SCHEMA),
+  omittedParagraphs: z.number().optional(),
+  provenance: PROVENANCE_SCHEMA,
+});
+
+interface AmendmentOutline extends Amendment {
+  outline: { number: string; opening: string }[];
+}
+
+const withOutline = (amendment: Amendment): AmendmentOutline => ({
+  ...amendment,
+  outline: amendment.paragraphs.map(({ number, text }) => ({
+    number,
+    opening: text.split("\n")[0] ?? "",
+  })),
+});
+
+const formatAmendmentOutline = (amendment: AmendmentOutline): string =>
+  [
+    amendment.title,
+    `${amendment.ministry} · ${amendment.provenance.url}`,
+    "\nOutline — call again with the § numbers you need:",
+    ...amendment.outline.map(
+      ({ number, opening }) => `  § ${number}  ${opening}`
+    ),
+  ].join("\n");
+
 export const registerTools = (server: McpServer): void => {
   server.registerTool(
     "find_statute",
@@ -183,11 +253,14 @@ export const registerTools = (server: McpServer): void => {
       title: "Read Danish statute",
       description:
         "Read a Danish statute from Retsinformation. Use an ELI identifier from find_statute. " +
+        "For an amending-act, use read_amendment instead. " +
         "Without `paragraphs` the tool returns an outline: the status, the later changes, " +
         "and the section titles with their \u00a7 ranges. " +
         "Read the outline first. Then call the tool again with the \u00a7 numbers you need. " +
         "The text is the version consolidated at publication. It does not contain later changes. " +
-        "The tool lists those changes. Read the changing act to see them.",
+        "The tool lists each change with its identifier and the \u00a7 of the changing act that makes it. " +
+        'Read a "Lov om ændring" with read_amendment and pass that \u00a7 as `paragraphs`. ' +
+        "Read any other later change with read_statute.",
       inputSchema: z.object({
         identifier: z
           .string()
@@ -196,15 +269,7 @@ export const registerTools = (server: McpServer): void => {
           .describe(
             'An ELI identifier from find_statute. For example "eli/lta/2016/193".'
           ),
-        paragraphs: z
-          .string()
-          .max(100)
-          .optional()
-          .describe(
-            'Which \u00a7 to read. For example "36", "38..38c" or "1,9a". ' +
-              "A range uses two dots, because a \u00a7 number can hold a hyphen. " +
-              "Leave it out to get the outline."
-          ),
+        paragraphs: PARAGRAPHS_INPUT,
       }),
       outputSchema: DOCUMENT_SCHEMA,
       annotations: { readOnlyHint: true, openWorldHint: true },
@@ -223,27 +288,65 @@ export const registerTools = (server: McpServer): void => {
         };
       }
 
-      const selected = selectParagraphs(document.paragraphs, paragraphs);
-      const shown = withinBudget(selected);
-      const omitted = selected.slice(shown.length);
-      const truncated =
-        omitted.length > 0
-          ? `\n\n(${omitted.length} more \u00a7\u00a7 left out, from ${omitted[0]!.heading} Ask for a smaller range.)`
-          : "";
-
+      const { text, ...selected } = readSelection(
+        document.paragraphs,
+        paragraphs
+      );
       return {
         content: [
-          {
-            type: "text",
-            text: `${formatOutline(document)}\n\n${formatParagraphs(shown)}${truncated}`,
-          },
+          { type: "text", text: `${formatOutline(document)}\n\n${text}` },
         ],
         structuredContent: {
           ...document,
-          paragraphs: shown,
+          ...selected,
           ...(warning ? { warning } : {}),
-          ...(omitted.length > 0 ? { omittedParagraphs: omitted.length } : {}),
         },
+      };
+    }
+  );
+
+  server.registerTool(
+    "read_amendment",
+    {
+      title: "Read Danish amending act",
+      description:
+        "Read a Danish amending act from Retsinformation: a lov or bekendtgørelse om ændring. " +
+        "Use an identifier from the later changes of read_statute, or an amending-act from find_statute. " +
+        "Without `paragraphs` the tool returns an outline: each \u00a7 with its first line. " +
+        "The first line names the statute that the \u00a7 changes, or tells when the act commences. " +
+        "Then call the tool again with the \u00a7 numbers you need. " +
+        "The tool reports the changes as the act prints them. It does not apply them to the consolidated text. " +
+        "If the tool says that the document is not an amending act, read it with read_statute.",
+      inputSchema: z.object({
+        identifier: z
+          .string()
+          .min(1)
+          .max(100)
+          .describe(
+            'An ELI identifier of an amending act. For example "eli/lta/2021/2158".'
+          ),
+        paragraphs: PARAGRAPHS_INPUT,
+      }),
+      outputSchema: AMENDMENT_SCHEMA,
+      annotations: { readOnlyHint: true, openWorldHint: true },
+    },
+    async ({ identifier, paragraphs }) => {
+      const amendment = withOutline(await readAmendment(identifier));
+      const outline = formatAmendmentOutline(amendment);
+      if (!paragraphs) {
+        return {
+          content: [{ type: "text", text: outline }],
+          structuredContent: { ...amendment, paragraphs: [] },
+        };
+      }
+
+      const { text, ...selected } = readSelection(
+        amendment.paragraphs,
+        paragraphs
+      );
+      return {
+        content: [{ type: "text", text: `${outline}\n\n${text}` }],
+        structuredContent: { ...amendment, ...selected },
       };
     }
   );
