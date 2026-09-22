@@ -110,7 +110,6 @@ const AMENDMENT_PROVENANCE = {
   url: "https://www.retsinformation.dk/eli/lta/2024/1669",
 };
 
-/** The shape of lov nr. 1669 af 2024, cut down to one change with a renumbering. */
 const AMENDMENT_XML = `<?xml version="1.0" encoding="utf-8"?>
 <Dokument>
   <Meta>

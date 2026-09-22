@@ -158,7 +158,6 @@ const selectParagraphs = (
   });
 };
 
-/** The § text within the character budget, and what the model needs to ask for the rest. */
 const readSelection = (
   paragraphs: Paragraph[],
   selection: string
@@ -195,22 +194,25 @@ const AMENDMENT_SCHEMA = z.object({
   provenance: PROVENANCE_SCHEMA,
 });
 
-/** The first line of each § says which statute it changes, or when the act commences. */
-const outlineOf = (
-  amendment: Amendment
-): { number: string; opening: string }[] =>
-  amendment.paragraphs.map((paragraph) => ({
-    number: paragraph.number,
-    opening: paragraph.text.split("\n")[0] ?? "",
-  }));
+interface AmendmentOutline extends Amendment {
+  outline: { number: string; opening: string }[];
+}
 
-const formatAmendmentOutline = (amendment: Amendment): string =>
+const withOutline = (amendment: Amendment): AmendmentOutline => ({
+  ...amendment,
+  outline: amendment.paragraphs.map(({ number, text }) => ({
+    number,
+    opening: text.split("\n")[0] ?? "",
+  })),
+});
+
+const formatAmendmentOutline = (amendment: AmendmentOutline): string =>
   [
     amendment.title,
     `${amendment.ministry} · ${amendment.provenance.url}`,
-    "\nOutline — call again with the \u00a7 numbers you need:",
-    ...outlineOf(amendment).map(
-      ({ number, opening }) => `  \u00a7 ${number}  ${opening}`
+    "\nOutline — call again with the § numbers you need:",
+    ...amendment.outline.map(
+      ({ number, opening }) => `  § ${number}  ${opening}`
     ),
   ].join("\n");
 
@@ -328,13 +330,12 @@ export const registerTools = (server: McpServer): void => {
       annotations: { readOnlyHint: true, openWorldHint: true },
     },
     async ({ identifier, paragraphs }) => {
-      const amendment = await readAmendment(identifier);
+      const amendment = withOutline(await readAmendment(identifier));
       const outline = formatAmendmentOutline(amendment);
-      const structured = { ...amendment, outline: outlineOf(amendment) };
       if (!paragraphs) {
         return {
           content: [{ type: "text", text: outline }],
-          structuredContent: { ...structured, paragraphs: [] },
+          structuredContent: { ...amendment, paragraphs: [] },
         };
       }
 
@@ -344,7 +345,7 @@ export const registerTools = (server: McpServer): void => {
       );
       return {
         content: [{ type: "text", text: `${outline}\n\n${text}` }],
-        structuredContent: { ...structured, ...selected },
+        structuredContent: { ...amendment, ...selected },
       };
     }
   );

@@ -28,8 +28,6 @@ const REPEATED_ELEMENTS = new Set([
   "Rubrica",
   "Linea",
   "AendringCentreretParagraf",
-  "AendringsNummer",
-  "Aendring",
   "IkraftCentreretParagraf",
 ]);
 
@@ -46,11 +44,7 @@ const STATUS_BY_LEX_DANIA_STATUS: Record<string, DocumentStatus> = {
 
 /** A footnote interrupts the sentence it hangs on, so it is left out of the text. */
 const FOOTNOTE_ELEMENT = "Nota";
-
-interface StatuteParagraph {
-  Explicatus?: string;
-  Stk?: unknown[];
-}
+const NEW_TEXT_ELEMENT = "AendringNyTekst";
 
 interface Container {
   Explicatus?: string;
@@ -58,33 +52,13 @@ interface Container {
   Afsnit?: Container[];
   Kapitel?: Container[];
   ParagrafGruppe?: Container[];
-  Paragraf?: StatuteParagraph[];
+  Paragraf?: { Explicatus?: string; Stk?: unknown[] }[];
 }
 
-/**
- * One numbered change: where it applies, the new text if the change adds any,
- * and the renumbering that follows from it, e.g. `Nr. 1-6 bliver herefter nr. 4-9.`
- */
-interface AmendingInstruction {
-  Explicatus?: string;
-  Aendring?: { AendringDefinition?: unknown; AendringAktion?: unknown }[];
-  Rykningsklausul?: unknown;
-}
-
-/**
- * A § of an amending act. `Exitus` names the statute that the § changes.
- * `Rubrica` titles the §, e.g. with the ministry in an act that spans several.
- */
-interface AmendingParagraph {
+interface AmendmentParagraph {
   Explicatus?: string;
   Rubrica?: unknown[];
-  Exitus?: unknown;
-  AendringsNummer?: AmendingInstruction[];
-}
-
-/** `Rubrica` titles the §, e.g. `Ikrafttrædelse`. */
-interface CommencementParagraph extends StatuteParagraph {
-  Rubrica?: unknown[];
+  [part: string]: unknown;
 }
 
 /** Body text is mixed content spread over Linea and Char, so it is collected. */
@@ -94,7 +68,9 @@ const textOf = (node: unknown): string => {
   if (node && typeof node === "object") {
     return Object.entries(node)
       .filter(([name]) => name !== FOOTNOTE_ELEMENT)
-      .map(([, value]) => textOf(value))
+      .map(([name, value]) =>
+        name === NEW_TEXT_ELEMENT ? quoted(textOf(value)) : textOf(value)
+      )
       .join(" ");
   }
   return "";
@@ -103,65 +79,51 @@ const textOf = (node: unknown): string => {
 const collapseSpaces = (text: string): string =>
   text.replace(/\s+/g, " ").trim();
 
+const quoted = (text: string): string => {
+  const collapsed = collapseSpaces(text);
+  return collapsed && `»${collapsed}«`;
+};
+
 export const toParagraphNumber = (heading: string): string =>
   heading.replace(/[§.\s]/g, "").toLowerCase();
 
 const toParagraph = (
-  heading: string | undefined,
-  lines: string[]
+  source: NonNullable<Container["Paragraf"]>[number]
 ): Paragraph => {
+  const heading = source.Explicatus;
   if (!heading) {
     throw new Error("LexDania paragraph without a § number");
   }
   return {
     number: toParagraphNumber(heading),
     heading: collapseSpaces(heading),
-    text: lines.join("\n"),
+    text: (source.Stk ?? [])
+      .map((stk) => collapseSpaces(textOf(stk)))
+      .join("\n"),
   };
 };
 
-const stkLines = (source: StatuteParagraph): string[] =>
-  (source.Stk ?? []).map((stk) => collapseSpaces(textOf(stk)));
-
-const toStatuteParagraph = (source: StatuteParagraph): Paragraph =>
-  toParagraph(source.Explicatus, stkLines(source));
-
-/** The act prints new text in »«, so the quotes show where the new text ends. */
-const toInstruction = (instruction: AmendingInstruction): string =>
-  [
-    instruction.Explicatus,
-    ...(instruction.Aendring ?? []).flatMap((change) => {
-      const newText = collapseSpaces(textOf(change.AendringAktion));
-      return [textOf(change.AendringDefinition), newText ? `»${newText}«` : ""];
-    }),
-    textOf(instruction.Rykningsklausul),
-  ]
-    .map((part) => collapseSpaces(part ?? ""))
-    .filter((part) => part !== "")
-    .join(" ");
-
-/** The title goes on the first line, so the outline shows it beside what the § changes. */
-const withTitle = (rubrica: unknown, lines: string[]): string[] => {
-  const title = collapseSpaces(textOf(rubrica));
-  const [first, ...rest] = lines;
-  if (!title) return lines;
-  return [first ? `${title} — ${first}` : title, ...rest];
+const toAmendmentParagraph = ({
+  Explicatus: heading,
+  Rubrica: title,
+  ...parts
+}: AmendmentParagraph): Paragraph => {
+  if (!heading) {
+    throw new Error("LexDania paragraph without a § number");
+  }
+  const [first = "", ...rest] = Object.values(parts)
+    .flat()
+    .map((part) => collapseSpaces(textOf(part)))
+    .filter(Boolean);
+  return {
+    number: toParagraphNumber(heading),
+    heading: collapseSpaces(heading),
+    text: [
+      title ? `${collapseSpaces(textOf(title))} — ${first}` : first,
+      ...rest,
+    ].join("\n"),
+  };
 };
-
-const toAmendingParagraph = (source: AmendingParagraph): Paragraph =>
-  toParagraph(
-    source.Explicatus,
-    withTitle(
-      source.Rubrica,
-      [
-        collapseSpaces(textOf(source.Exitus)),
-        ...(source.AendringsNummer ?? []).map(toInstruction),
-      ].filter((line) => line !== "")
-    )
-  );
-
-const toCommencementParagraph = (source: CommencementParagraph): Paragraph =>
-  toParagraph(source.Explicatus, withTitle(source.Rubrica, stkLines(source)));
 
 /**
  * The title sits on a different level in every statute — on the afsnit in
@@ -190,7 +152,7 @@ const walk = (
     : [
         {
           sections: [],
-          paragraphs: (container.Paragraf ?? []).map(toStatuteParagraph),
+          paragraphs: (container.Paragraf ?? []).map(toParagraph),
         },
       ];
 
@@ -210,16 +172,12 @@ const walk = (
   return { sections: [section, ...sections], paragraphs };
 };
 
-/**
- * Retsinformation's accession number is `A`, the year, the number in Lovtidende A
- * and two more digits, so `A20210215830` is `eli/lta/2021/2158`. We found no ELI
- * for the other prefixes.
- */
-const toIdentifier = (
-  accessionNumber: string | undefined
-): string | undefined => {
-  const match = /^A(\d{4})(\d{5})\d{2}$/.exec(accessionNumber ?? "");
-  return match ? `eli/lta/${match[1]}/${Number(match[2])}` : undefined;
+const LOVTIDENDE_A_ACCESSION = /^A(?<year>\d{4})(?<number>\d{5})\d{2}$/;
+
+const toIdentifier = (accession: string | undefined): string | undefined => {
+  const { year, number } =
+    LOVTIDENDE_A_ACCESSION.exec(accession ?? "")?.groups ?? {};
+  return year && number ? `eli/lta/${year}/${Number(number)}` : undefined;
 };
 
 const toLaterChanges = (meta: {
@@ -235,7 +193,7 @@ const toLaterChanges = (meta: {
 
 /**
  * An amending act nests its new text inside change instructions instead of a
- * `Bog`, so `parseLexDaniaAmendment` reads it.
+ * `Bog`, so only consolidated statutes are read.
  *
  * `Ikraft` holds the commencement provisions of the amending acts. It is a
  * sibling of `Bog`, so walking `Bog` alone keeps their § numbers out of the
@@ -279,37 +237,32 @@ export const parseLexDania = (
   };
 };
 
-/** LexDania puts the commencement §§ after the amending §§, so the order holds. */
 export const parseLexDaniaAmendment = (
   xml: string,
   provenance: Provenance
 ): Amendment => {
   const { Dokument: document } = parser.parse(xml);
-  const meta = document.Meta[0];
-
   const body = document.DokumentIndhold;
   if (!body) {
     throw new Error(
       `Cannot read ${provenance.identifier}. Retsinformation has no text for it. Open ${provenance.url} to read it.`
     );
   }
-  const amendingParagraphs: AmendingParagraph[] | undefined =
-    body.AendringCentreretParagraf;
-  if (!amendingParagraphs) {
+  if (!body.AendringCentreretParagraf) {
     throw new Error(
       `Cannot read ${provenance.identifier}. It is not an amending act.`
     );
   }
-  const commencementParagraphs: CommencementParagraph[] =
-    body.IkraftCentreretParagraf ?? [];
 
+  const meta = document.Meta[0];
+  const paragraphs: AmendmentParagraph[] = [
+    ...body.AendringCentreretParagraf,
+    ...(body.IkraftCentreretParagraf ?? []),
+  ];
   return {
     title: collapseSpaces(meta.DocumentTitle),
     ministry: meta.Ministry,
-    paragraphs: [
-      ...amendingParagraphs.map(toAmendingParagraph),
-      ...commencementParagraphs.map(toCommencementParagraph),
-    ],
+    paragraphs: paragraphs.map(toAmendmentParagraph),
     provenance,
   };
 };
